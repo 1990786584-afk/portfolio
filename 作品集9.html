@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoey's Portfolio | AI-Enhanced Content Creator</title>
+    
+    <!-- 1. 首屏简历图片：立即全力预加载 -->
+    <link rel="preload" as="image" href="tinified/resume-C.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="tinified/resume-E.jpg" fetchpriority="high">
+    
     <style>
         * {
             margin: 0;
@@ -54,57 +59,14 @@
             color: #666;
             font-size: 0.9rem;
             letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        /* 新增的加载提示样式 */
-        .loading-hint {
-            display: inline-block;
-            margin: 10px auto 30px;
-            padding: 12px 28px;
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(255, 107, 107, 0.08) 100%);
-            border: 1px solid rgba(255, 107, 107, 0.2);
-            border-radius: 30px;
-            font-size: 0.85rem;
-            color: #666;
-            letter-spacing: 0.5px;
-            animation: gentlePulse 3s ease-in-out infinite;
-            box-shadow: 0 2px 12px rgba(255, 107, 107, 0.06);
-            white-space: nowrap;
-        }
-
-        .kaomoji {
-            display: inline-block;
-            margin-left: 4px;
-            color: var(--accent-color);
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        @keyframes gentlePulse {
-            0%, 100% { opacity: 0.85; transform: translateY(0); }
-            50% { opacity: 1; transform: translateY(-2px); }
-        }
-
-        @media (max-width: 768px) {
-            .loading-hint {
-                font-size: 0.8rem;
-                padding: 10px 20px;
-                margin: 8px 10px 25px;
-                white-space: normal;
-                line-height: 1.5;
-            }
-            .kaomoji {
-                white-space: nowrap;
-                display: inline-block;
-            }
+            margin-bottom: 30px;
         }
 
         .hero-stats {
             display: flex;
             justify-content: center;
             gap: 60px;
-            margin-top: 10px;
+            margin-top: 30px;
             flex-wrap: wrap;
         }
 
@@ -1089,11 +1051,6 @@
             <h1>Zoey's Portfolio</h1>
             <p class="subtitle">AI-Enhanced Content Creator / Growth Strategist</p>
             
-            <!-- 新增的加载提示 -->
-            <div class="loading-hint">
-                图片加载有点慢，请等等我，用电脑端打开效果更好哟<span class="kaomoji">(*^▽^*)</span>
-            </div>
-            
             <div class="hero-stats">
                 <div class="stat-item">
                     <div class="stat-number" id="totalLikes">0</div>
@@ -1120,20 +1077,20 @@
         <!-- Resume Section -->
         <section id="resume" class="content-section active">
             <div class="resume-container">
-                <div class="resume-card" onclick="openLightbox('tinified/resume-C.webp')">
+                <div class="resume-card" onclick="openLightbox('tinified/resume-C.jpg')">
                     <div class="resume-header">
                         <span class="resume-title">中文简历</span>
                         <span class="lang-badge">CN</span>
                     </div>
-                    <img src="tinified/resume-C.webp" alt="中文简历" class="resume-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22800%22%3E%3Crect width=%22600%22 height=%22800%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22%3E中文简历预览%3C/text%3E%3C/svg%3E'">
+                    <img src="tinified/resume-C.jpg" alt="中文简历" class="resume-image" fetchpriority="high" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22800%22%3E%3Crect width=%22600%22 height=%22800%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22%3E中文简历预览%3C/text%3E%3C/svg%3E'">
                 </div>
 
-                <div class="resume-card" onclick="openLightbox('tinified/resume-E.webp')">
+                <div class="resume-card" onclick="openLightbox('tinified/resume-E.jpg')">
                     <div class="resume-header">
                         <span class="resume-title">English Resume</span>
                         <span class="lang-badge">EN</span>
                     </div>
-                    <img src="tinified/resume-E.webp" alt="English Resume" class="resume-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22800%22%3E%3Crect width=%22600%22 height=%22800%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22%3EEnglish Resume Preview%3C/text%3E%3C/svg%3E'">
+                    <img src="tinified/resume-E.jpg" alt="English Resume" class="resume-image" fetchpriority="high" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22800%22%3E%3Crect width=%22600%22 height=%22800%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22%3EEnglish Resume Preview%3C/text%3E%3C/svg%3E'">
                 </div>
             </div>
             <p class="caption">点击卡片查看完整简历 / Click to view full resume</p>
@@ -1185,16 +1142,16 @@
                 <h3>图文破万赞精选 / Viral Graphics (11篇突破万赞)</h3>
             </div>
             <div class="centered-grid" id="viralGraphics">
-                <div class="social-item" onclick="openLightbox('tinified/w1.webp')">
-                    <img src="tinified/w1.webp" alt="爆款图文 1" loading="lazy">
+                <div class="social-item" onclick="openLightbox('tinified/w1.jpg')">
+                    <img src="tinified/w1.jpg" alt="爆款图文 1" loading="lazy">
                     <span class="social-badge">10k+ 👍</span>
                 </div>
-                <div class="social-item" onclick="openLightbox('tinified/w2.webp')">
-                    <img src="tinified/w2.webp" alt="爆款图文 2" loading="lazy">
+                <div class="social-item" onclick="openLightbox('tinified/w2.jpg')">
+                    <img src="tinified/w2.jpg" alt="爆款图文 2" loading="lazy">
                     <span class="social-badge">10k+ 👍</span>
                 </div>
-                <div class="social-item" onclick="openLightbox('tinified/w3.webp')">
-                    <img src="tinified/w3.webp" alt="爆款图文 3" loading="lazy">
+                <div class="social-item" onclick="openLightbox('tinified/w3.jpg')">
+                    <img src="tinified/w3.jpg" alt="爆款图文 3" loading="lazy">
                     <span class="social-badge">10k+ 👍</span>
                 </div>
             </div>
@@ -1203,20 +1160,20 @@
                 <h3>视频破万赞精选 / Viral Videos (4篇)</h3>
             </div>
             <div class="video-grid">
-                <div class="video-item" onclick="openLightbox('tinified/vw1.webp')">
-                    <img src="tinified/vw1.webp" alt="爆款视频 1" loading="lazy">
+                <div class="video-item" onclick="openLightbox('tinified/vw1.PNG')">
+                    <img src="tinified/vw1.PNG" alt="爆款视频 1" loading="lazy">
                     <span class="social-badge">10k+ ❤️</span>
                 </div>
-                <div class="video-item" onclick="openLightbox('tinified/vw2.webp')">
-                    <img src="tinified/vw2.webp" alt="爆款视频 2" loading="lazy">
+                <div class="video-item" onclick="openLightbox('tinified/vw2.jpg')">
+                    <img src="tinified/vw2.jpg" alt="爆款视频 2" loading="lazy">
                     <span class="social-badge">10k+ ❤️</span>
                 </div>
-                <div class="video-item" onclick="openLightbox('tinified/vw3.webp')">
-                    <img src="tinified/vw3.webp" alt="爆款视频 3" loading="lazy">
+                <div class="video-item" onclick="openLightbox('tinified/vw3.jpg')">
+                    <img src="tinified/vw3.jpg" alt="爆款视频 3" loading="lazy">
                     <span class="social-badge">10k+ ❤️</span>
                 </div>
-                <div class="video-item" onclick="openLightbox('tinified/vw4.webp')">
-                    <img src="tinified/vw4.webp" alt="爆款视频 4" loading="lazy">
+                <div class="video-item" onclick="openLightbox('tinified/vw4.jpg')">
+                    <img src="tinified/vw4.jpg" alt="爆款视频 4" loading="lazy">
                     <span class="social-badge">10k+ ❤️</span>
                 </div>
             </div>
@@ -1225,28 +1182,28 @@
                 <h3>破千赞精选 / 1k+ Likes Selection (36篇)</h3>
             </div>
             <div class="social-grid" id="kLikes">
-                <div class="social-item" onclick="openLightbox('tinified/k1.webp')">
-                    <img src="tinified/k1.webp" alt="千赞 1" loading="lazy">
+                <div class="social-item" onclick="openLightbox('tinified/k1.jpg')">
+                    <img src="tinified/k1.jpg" alt="千赞 1" loading="lazy">
                     <span class="social-badge">1k+ 👍</span>
                 </div>
-                <div class="social-item" onclick="openLightbox('tinified/k2.webp')">
-                    <img src="tinified/k2.webp" alt="千赞 2" loading="lazy">
+                <div class="social-item" onclick="openLightbox('tinified/k2.jpg')">
+                    <img src="tinified/k2.jpg" alt="千赞 2" loading="lazy">
                     <span class="social-badge">1k+ 👍</span>
                 </div>
-                <div class="social-item" onclick="openLightbox('tinified/k3.webp')">
-                    <img src="tinified/k3.webp" alt="千赞 3" loading="lazy">
+                <div class="social-item" onclick="openLightbox('tinified/k3.jpg')">
+                    <img src="tinified/k3.jpg" alt="千赞 3" loading="lazy">
                     <span class="social-badge">1k+ 👍</span>
                 </div>
-                <div class="social-item" onclick="openLightbox('tinified/k4.webp')">
-                    <img src="tinified/k4.webp" alt="千赞 4" loading="lazy">
+                <div class="social-item" onclick="openLightbox('tinified/k4.jpg')">
+                    <img src="tinified/k4.jpg" alt="千赞 4" loading="lazy">
                     <span class="social-badge">1k+ 👍</span>
                 </div>
-                <div class="social-item" onclick="openLightbox('tinified/k5.webp')">
-                    <img src="tinified/k5.webp" alt="千赞 5" loading="lazy">
+                <div class="social-item" onclick="openLightbox('tinified/k5.jpg')">
+                    <img src="tinified/k5.jpg" alt="千赞 5" loading="lazy">
                     <span class="social-badge">1k+ 👍</span>
                 </div>
-                <div class="social-item" onclick="openLightbox('tinified/k6.webp')">
-                    <img src="tinified/k6.webp" alt="千赞 6" loading="lazy">
+                <div class="social-item" onclick="openLightbox('tinified/k6.jpg')">
+                    <img src="tinified/k6.jpg" alt="千赞 6" loading="lazy">
                     <span class="social-badge">1k+ 👍</span>
                 </div>
             </div>
@@ -1275,31 +1232,29 @@
                         <span class="project-desc">理解传播机制：如何让内容获得高曝光与高点赞</span>
                     </div>
                     
-                    <!-- PPT部分展示 -->
                     <div class="data-section" style="margin-top: 0; padding-top: 0; border-top: none;">
                         <h3 class="section-title">PPT部分展示 / Report Preview</h3>
                         <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">高赞内容运营分析报告关键页面预览</p>
                         <div class="ppt-grid">
-                            <div class="ppt-item" onclick="openLightbox('tinified/高点赞1.webp')">
-                                <img src="tinified/高点赞1.webp" alt="高赞报告页面1" loading="lazy">
+                            <div class="ppt-item" onclick="openLightbox('tinified/高点赞1.png')">
+                                <img src="tinified/高点赞1.png" alt="高赞报告页面1" loading="lazy">
                                 <div class="ppt-label">账号高赞曝光概览</div>
                             </div>
-                            <div class="ppt-item" onclick="openLightbox('tinified/高点赞2.webp')">
-                                <img src="tinified/高点赞2.webp" alt="高赞报告页面2" loading="lazy">
+                            <div class="ppt-item" onclick="openLightbox('tinified/高点赞2.png')">
+                                <img src="tinified/高点赞2.png" alt="高赞报告页面2" loading="lazy">
                                 <div class="ppt-label">高赞笔记复盘</div>
                             </div>
-                            <div class="ppt-item" onclick="openLightbox('tinified/高点赞3.webp')">
-                                <img src="tinified/高点赞3.webp" alt="高赞报告页面3" loading="lazy">
+                            <div class="ppt-item" onclick="openLightbox('tinified/高点赞3.png')">
+                                <img src="tinified/高点赞3.png" alt="高赞报告页面3" loading="lazy">
                                 <div class="ppt-label">高赞选题矩阵</div>
                             </div>
-                            <div class="ppt-item" onclick="openLightbox('tinified/高点赞4.webp')">
-                                <img src="tinified/高点赞4.webp" alt="高赞报告页面4" loading="lazy">
+                            <div class="ppt-item" onclick="openLightbox('tinified/高点赞4.png')">
+                                <img src="tinified/高点赞4.png" alt="高赞报告页面4" loading="lazy">
                                 <div class="ppt-label">高赞内容生产方法论</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 下载按钮 -->
                     <div class="download-section-top">
                         <a href="ppts/高赞账号分析报告1.0.pptx" class="download-btn" download>
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1445,31 +1400,29 @@
                         <span class="project-desc">理解ROI逻辑：如何让内容驱动收藏与购买决策</span>
                     </div>
                     
-                    <!-- PPT部分展示 -->
                     <div class="data-section" style="margin-top: 0; padding-top: 0; border-top: none;">
                         <h3 class="section-title">PPT部分展示 / Report Preview</h3>
                         <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">商业价值内容运营分析报告关键页面预览</p>
                         <div class="ppt-grid">
-                            <div class="ppt-item" onclick="openLightbox('tinified/商业1.webp')">
-                                <img src="tinified/商业1.webp" alt="商业报告页面1" loading="lazy">
+                            <div class="ppt-item" onclick="openLightbox('tinified/商业1.png')">
+                                <img src="tinified/商业1.png" alt="商业报告页面1" loading="lazy">
                                 <div class="ppt-label">账号商业价值概览</div>
                             </div>
-                            <div class="ppt-item" onclick="openLightbox('tinified/商业2.webp')">
-                                <img src="tinified/商业2.webp" alt="商业报告页面2" loading="lazy">
+                            <div class="ppt-item" onclick="openLightbox('tinified/商业2.png')">
+                                <img src="tinified/商业2.png" alt="商业报告页面2" loading="lazy">
                                 <div class="ppt-label">受众消费画像</div>
                             </div>
-                            <div class="ppt-item" onclick="openLightbox('tinified/商业3.webp')">
-                                <img src="tinified/商业3.webp" alt="商业报告页面3" loading="lazy">
+                            <div class="ppt-item" onclick="openLightbox('tinified/商业3.png')">
+                                <img src="tinified/商业3.png" alt="商业报告页面3" loading="lazy">
                                 <div class="ppt-label">品类商业适配矩阵</div>
                             </div>
-                            <div class="ppt-item" onclick="openLightbox('tinified/商业4.webp')">
-                                <img src="tinified/商业4.webp" alt="商业报告页面4" loading="lazy">
+                            <div class="ppt-item" onclick="openLightbox('tinified/商业4.png')">
+                                <img src="tinified/商业4.png" alt="商业报告页面4" loading="lazy">
                                 <div class="ppt-label">商业内容生产方法论</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 下载按钮 -->
                     <div class="download-section-top">
                         <a href="ppts/商业转化账号分析报告1.0.pptx" class="download-btn" download>
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1597,31 +1550,29 @@
                         <span class="project-desc">整合营销视角：从KOC实操到品牌策略解构</span>
                     </div>
                     
-                    <!-- PPT部分展示 -->
                     <div class="data-section" style="margin-top: 0; padding-top: 0; border-top: none;">
                         <h3 class="section-title">PPT部分展示 / Report Preview</h3>
                         <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">欧莱雅小红书内容策略分析报告关键页面预览</p>
                         <div class="ppt-grid">
-                            <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅1.webp')">
-                                <img src="tinified/欧莱雅1.webp" alt="欧莱雅报告页面1" loading="lazy">
+                            <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅1.png')">
+                                <img src="tinified/欧莱雅1.png" alt="欧莱雅报告页面1" loading="lazy">
                                 <div class="ppt-label">数据概览与发布者分布</div>
                             </div>
-                            <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅2.webp')">
-                                <img src="tinified/欧莱雅2.webp" alt="欧莱雅报告页面2" loading="lazy">
+                            <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅2.png')">
+                                <img src="tinified/欧莱雅2.png" alt="欧莱雅报告页面2" loading="lazy">
                                 <div class="ppt-label">叙事钩子频率分析</div>
                             </div>
-                            <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅3.webp')">
-                                <img src="tinified/欧莱雅3.webp" alt="欧莱雅报告页面3" loading="lazy">
+                            <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅3.png')">
+                                <img src="tinified/欧莱雅3.png" alt="欧莱雅报告页面3" loading="lazy">
                                 <div class="ppt-label">竞品对标分析</div>
                             </div>
-                            <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅4.webp')">
-                                <img src="tinified/欧莱雅4.webp" alt="欧莱雅报告页面4" loading="lazy">
+                            <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅4.png')">
+                                <img src="tinified/欧莱雅4.png" alt="欧莱雅报告页面4" loading="lazy">
                                 <div class="ppt-label">品牌策略建议</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 下载按钮 -->
                     <div class="download-section-top">
                         <a href="ppts/欧莱雅品牌策略分析报告.pptx" class="download-btn" download>
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1828,7 +1779,7 @@
     </div>
 
     <script>
-        // Animation for total likes counter
+        // 动画计数器
         function animateValue(id, start, end, duration) {
             let obj = document.getElementById(id);
             let range = end - start;
@@ -1853,16 +1804,108 @@
             run();
         }
 
-        // Start animation when page loads
         window.addEventListener('load', () => {
             animateValue("totalLikes", 0, 600000, 2000);
         });
 
-        const posterFiles = [
-            'tinified/poster1.PNG', 'tinified/poster2.webp', 'tinified/poster3.webp', 'tinified/poster4.webp', 'tinified/poster5.webp',
-            'tinified/poster6.webp', 'tinified/poster7.webp', 'tinified/poster8.webp', 'tinified/poster9.webp', 'tinified/poster10.webp'
+        // 所有需要预加载的图片列表（共25张，排除2张简历首屏图）
+        const preloadQueue = [
+            // Social 板块 (13张)
+            'tinified/w1.jpg', 'tinified/w2.jpg', 'tinified/w3.jpg',
+            'tinified/vw1.PNG', 'tinified/vw2.jpg', 'tinified/vw3.jpg', 'tinified/vw4.jpg',
+            'tinified/k1.jpg', 'tinified/k2.jpg', 'tinified/k3.jpg', 'tinified/k4.jpg', 'tinified/k5.jpg', 'tinified/k6.jpg',
+            // PPT 截图 (12张)
+            'tinified/高点赞1.png', 'tinified/高点赞2.png', 'tinified/高点赞3.png', 'tinified/高点赞4.png',
+            'tinified/商业1.png', 'tinified/商业2.png', 'tinified/商业3.png', 'tinified/商业4.png',
+            'tinified/欧莱雅1.png', 'tinified/欧莱雅2.png', 'tinified/欧莱雅3.png', 'tinified/欧莱雅4.png'
         ];
 
+        // 海报图片（按需加载，不加入预加载队列，因为用户可能不看海报）
+        const posterFiles = [
+            'tinified/poster1.PNG', 'tinified/poster2.PNG', 'tinified/poster3.JPG', 'tinified/poster4.JPG', 'tinified/poster5.JPG',
+            'tinified/poster6.JPG', 'tinified/poster7.JPG', 'tinified/poster8.JPG', 'tinified/poster9.JPG', 'tinified/poster10.JPG'
+        ];
+
+        // 智能预加载系统
+        let preloadedCount = 0;
+        
+        function shouldPreload() {
+            // 移动端适配：检查省流量模式
+            if ('connection' in navigator) {
+                const conn = navigator.connection;
+                // 如果用户开启省流量模式，跳过预加载
+                if (conn.saveData) {
+                    console.log('Save-Data mode enabled, skipping preload');
+                    return false;
+                }
+                // 如果是2G网络，跳过预加载
+                if (conn.effectiveType === '2g') {
+                    console.log('2G connection detected, skipping preload');
+                    return false;
+                }
+                // 3G网络降低预加载速度（由间隔300ms自动处理，不跳过）
+            }
+            return true;
+        }
+
+        function preloadImage(url) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(url);
+                img.onerror = () => reject(url);
+                // 低优先级加载，不抢带宽
+                if ('fetchpriority' in img) {
+                    img.fetchPriority = 'low';
+                }
+                img.src = url;
+            });
+        }
+
+        function startGentlePreload() {
+            if (!shouldPreload()) return;
+            
+            let index = 0;
+            
+            function loadNext() {
+                if (index >= preloadQueue.length) {
+                    console.log(`Preload complete: ${preloadedCount}/${preloadQueue.length} images`);
+                    return;
+                }
+                
+                const url = preloadQueue[index];
+                
+                // 使用 requestIdleCallback 如果可用（更友好的浏览器空闲加载），否则用 setTimeout
+                const scheduler = ('requestIdleCallback' in window) 
+                    ? window.requestIdleCallback 
+                    : (cb) => setTimeout(cb, 300);
+                
+                scheduler(() => {
+                    preloadImage(url)
+                        .then(() => {
+                            preloadedCount++;
+                            console.log(`Preloaded: ${url}`);
+                        })
+                        .catch(() => {
+                            console.log(`Failed to preload: ${url}`);
+                        })
+                        .finally(() => {
+                            index++;
+                            // 300ms 间隔，温和加载不抢带宽
+                            setTimeout(loadNext, 300);
+                        });
+                }, { timeout: 2000 }); // 2秒超时保障
+            }
+            
+            // 开始加载队列
+            loadNext();
+        }
+
+        // 页面加载完成后，延迟1秒开始预加载（确保首屏渲染完成）
+        window.addEventListener('load', () => {
+            setTimeout(startGentlePreload, 1000);
+        });
+
+        // 原有的 Section 切换逻辑
         function showSection(sectionName) {
             document.querySelectorAll('.content-section').forEach(section => {
                 section.classList.remove('active');
@@ -1873,13 +1916,13 @@
             document.getElementById(sectionName).classList.add('active');
             event.target.classList.add('active');
             
+            // 如果是海报section且未初始化，初始化海报
             if (sectionName === 'posters' && document.getElementById('posterGrid').children.length === 0) {
                 initPosters();
             }
         }
 
         function switchProject(projectType) {
-            // Hide all project contents
             document.querySelectorAll('.project-content').forEach(content => {
                 content.classList.remove('active');
             });
@@ -1887,7 +1930,6 @@
                 tab.classList.remove('active');
             });
             
-            // Show selected
             document.getElementById(projectType + '-project').classList.add('active');
             event.target.classList.add('active');
         }
@@ -1925,7 +1967,6 @@
             if (e.key === 'Escape') closeLightbox();
         });
 
-        // Smooth scroll behavior
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1935,7 +1976,6 @@
             });
         });
 
-        // Add hover effects for data tables
         document.querySelectorAll('.data-table tr').forEach(row => {
             row.addEventListener('mouseenter', function() {
                 this.style.transition = 'all 0.3s';
