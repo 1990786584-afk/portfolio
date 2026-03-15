@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoey's Portfolio | AI-Enhanced Content Creator</title>
-    
-    <!-- 1. 首屏简历图片：立即全力预加载 -->
-    <link rel="preload" as="image" href="tinified/resume-C.jpg" fetchpriority="high">
-    <link rel="preload" as="image" href="tinified/resume-E.jpg" fetchpriority="high">
-    
     <style>
         * {
             margin: 0;
@@ -649,7 +644,7 @@
             line-height: 1.5;
         }
 
-        /* PPT Screenshots */
+        /* PPT Screenshots - 修改样式以完整显示图片 */
         .ppt-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -677,6 +672,7 @@
             width: 100%;
             height: auto;
             display: block;
+            /* 移除 object-fit: cover，让图片自然显示完整内容 */
         }
 
         .ppt-label {
@@ -1082,7 +1078,7 @@
                         <span class="resume-title">中文简历</span>
                         <span class="lang-badge">CN</span>
                     </div>
-                    <img src="tinified/resume-C.jpg" alt="中文简历" class="resume-image" fetchpriority="high" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22800%22%3E%3Crect width=%22600%22 height=%22800%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22%3E中文简历预览%3C/text%3E%3C/svg%3E'">
+                    <img src="tinified/resume-C.jpg" alt="中文简历" class="resume-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22800%22%3E%3Crect width=%22600%22 height=%22800%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22%3E中文简历预览%3C/text%3E%3C/svg%3E'">
                 </div>
 
                 <div class="resume-card" onclick="openLightbox('tinified/resume-E.jpg')">
@@ -1090,7 +1086,7 @@
                         <span class="resume-title">English Resume</span>
                         <span class="lang-badge">EN</span>
                     </div>
-                    <img src="tinified/resume-E.jpg" alt="English Resume" class="resume-image" fetchpriority="high" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22800%22%3E%3Crect width=%22600%22 height=%22800%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22%3EEnglish Resume Preview%3C/text%3E%3C/svg%3E'">
+                    <img src="tinified/resume-E.jpg" alt="English Resume" class="resume-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22800%22%3E%3Crect width=%22600%22 height=%22800%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22%3EEnglish Resume Preview%3C/text%3E%3C/svg%3E'">
                 </div>
             </div>
             <p class="caption">点击卡片查看完整简历 / Click to view full resume</p>
@@ -1168,6 +1164,7 @@
                     <img src="tinified/vw2.jpg" alt="爆款视频 2" loading="lazy">
                     <span class="social-badge">10k+ ❤️</span>
                 </div>
+                <!-- 修正：改为 vw3.jpg -->
                 <div class="video-item" onclick="openLightbox('tinified/vw3.jpg')">
                     <img src="tinified/vw3.jpg" alt="爆款视频 3" loading="lazy">
                     <span class="social-badge">10k+ ❤️</span>
@@ -1232,6 +1229,7 @@
                         <span class="project-desc">理解传播机制：如何让内容获得高曝光与高点赞</span>
                     </div>
                     
+                    <!-- PPT部分展示 - 移到最上面，使用修改后的样式 -->
                     <div class="data-section" style="margin-top: 0; padding-top: 0; border-top: none;">
                         <h3 class="section-title">PPT部分展示 / Report Preview</h3>
                         <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">高赞内容运营分析报告关键页面预览</p>
@@ -1255,6 +1253,7 @@
                         </div>
                     </div>
 
+                    <!-- 下载按钮 - 修正路径 -->
                     <div class="download-section-top">
                         <a href="ppts/高赞账号分析报告1.0.pptx" class="download-btn" download>
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1400,6 +1399,7 @@
                         <span class="project-desc">理解ROI逻辑：如何让内容驱动收藏与购买决策</span>
                     </div>
                     
+                    <!-- PPT部分展示 -->
                     <div class="data-section" style="margin-top: 0; padding-top: 0; border-top: none;">
                         <h3 class="section-title">PPT部分展示 / Report Preview</h3>
                         <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">商业价值内容运营分析报告关键页面预览</p>
@@ -1423,6 +1423,7 @@
                         </div>
                     </div>
 
+                    <!-- 下载按钮 - 修正路径 -->
                     <div class="download-section-top">
                         <a href="ppts/商业转化账号分析报告1.0.pptx" class="download-btn" download>
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1550,6 +1551,7 @@
                         <span class="project-desc">整合营销视角：从KOC实操到品牌策略解构</span>
                     </div>
                     
+                    <!-- PPT部分展示 -->
                     <div class="data-section" style="margin-top: 0; padding-top: 0; border-top: none;">
                         <h3 class="section-title">PPT部分展示 / Report Preview</h3>
                         <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">欧莱雅小红书内容策略分析报告关键页面预览</p>
@@ -1573,6 +1575,7 @@
                         </div>
                     </div>
 
+                    <!-- 下载按钮 - 修正路径 -->
                     <div class="download-section-top">
                         <a href="ppts/欧莱雅品牌策略分析报告.pptx" class="download-btn" download>
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1779,7 +1782,7 @@
     </div>
 
     <script>
-        // 动画计数器
+        // Animation for total likes counter
         function animateValue(id, start, end, duration) {
             let obj = document.getElementById(id);
             let range = end - start;
@@ -1804,108 +1807,16 @@
             run();
         }
 
+        // Start animation when page loads
         window.addEventListener('load', () => {
             animateValue("totalLikes", 0, 600000, 2000);
         });
 
-        // 所有需要预加载的图片列表（共25张，排除2张简历首屏图）
-        const preloadQueue = [
-            // Social 板块 (13张)
-            'tinified/w1.jpg', 'tinified/w2.jpg', 'tinified/w3.jpg',
-            'tinified/vw1.PNG', 'tinified/vw2.jpg', 'tinified/vw3.jpg', 'tinified/vw4.jpg',
-            'tinified/k1.jpg', 'tinified/k2.jpg', 'tinified/k3.jpg', 'tinified/k4.jpg', 'tinified/k5.jpg', 'tinified/k6.jpg',
-            // PPT 截图 (12张)
-            'tinified/高点赞1.png', 'tinified/高点赞2.png', 'tinified/高点赞3.png', 'tinified/高点赞4.png',
-            'tinified/商业1.png', 'tinified/商业2.png', 'tinified/商业3.png', 'tinified/商业4.png',
-            'tinified/欧莱雅1.png', 'tinified/欧莱雅2.png', 'tinified/欧莱雅3.png', 'tinified/欧莱雅4.png'
-        ];
-
-        // 海报图片（按需加载，不加入预加载队列，因为用户可能不看海报）
         const posterFiles = [
             'tinified/poster1.PNG', 'tinified/poster2.PNG', 'tinified/poster3.JPG', 'tinified/poster4.JPG', 'tinified/poster5.JPG',
             'tinified/poster6.JPG', 'tinified/poster7.JPG', 'tinified/poster8.JPG', 'tinified/poster9.JPG', 'tinified/poster10.JPG'
         ];
 
-        // 智能预加载系统
-        let preloadedCount = 0;
-        
-        function shouldPreload() {
-            // 移动端适配：检查省流量模式
-            if ('connection' in navigator) {
-                const conn = navigator.connection;
-                // 如果用户开启省流量模式，跳过预加载
-                if (conn.saveData) {
-                    console.log('Save-Data mode enabled, skipping preload');
-                    return false;
-                }
-                // 如果是2G网络，跳过预加载
-                if (conn.effectiveType === '2g') {
-                    console.log('2G connection detected, skipping preload');
-                    return false;
-                }
-                // 3G网络降低预加载速度（由间隔300ms自动处理，不跳过）
-            }
-            return true;
-        }
-
-        function preloadImage(url) {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-                img.onload = () => resolve(url);
-                img.onerror = () => reject(url);
-                // 低优先级加载，不抢带宽
-                if ('fetchpriority' in img) {
-                    img.fetchPriority = 'low';
-                }
-                img.src = url;
-            });
-        }
-
-        function startGentlePreload() {
-            if (!shouldPreload()) return;
-            
-            let index = 0;
-            
-            function loadNext() {
-                if (index >= preloadQueue.length) {
-                    console.log(`Preload complete: ${preloadedCount}/${preloadQueue.length} images`);
-                    return;
-                }
-                
-                const url = preloadQueue[index];
-                
-                // 使用 requestIdleCallback 如果可用（更友好的浏览器空闲加载），否则用 setTimeout
-                const scheduler = ('requestIdleCallback' in window) 
-                    ? window.requestIdleCallback 
-                    : (cb) => setTimeout(cb, 300);
-                
-                scheduler(() => {
-                    preloadImage(url)
-                        .then(() => {
-                            preloadedCount++;
-                            console.log(`Preloaded: ${url}`);
-                        })
-                        .catch(() => {
-                            console.log(`Failed to preload: ${url}`);
-                        })
-                        .finally(() => {
-                            index++;
-                            // 300ms 间隔，温和加载不抢带宽
-                            setTimeout(loadNext, 300);
-                        });
-                }, { timeout: 2000 }); // 2秒超时保障
-            }
-            
-            // 开始加载队列
-            loadNext();
-        }
-
-        // 页面加载完成后，延迟1秒开始预加载（确保首屏渲染完成）
-        window.addEventListener('load', () => {
-            setTimeout(startGentlePreload, 1000);
-        });
-
-        // 原有的 Section 切换逻辑
         function showSection(sectionName) {
             document.querySelectorAll('.content-section').forEach(section => {
                 section.classList.remove('active');
@@ -1916,13 +1827,13 @@
             document.getElementById(sectionName).classList.add('active');
             event.target.classList.add('active');
             
-            // 如果是海报section且未初始化，初始化海报
             if (sectionName === 'posters' && document.getElementById('posterGrid').children.length === 0) {
                 initPosters();
             }
         }
 
         function switchProject(projectType) {
+            // Hide all project contents
             document.querySelectorAll('.project-content').forEach(content => {
                 content.classList.remove('active');
             });
@@ -1930,6 +1841,7 @@
                 tab.classList.remove('active');
             });
             
+            // Show selected
             document.getElementById(projectType + '-project').classList.add('active');
             event.target.classList.add('active');
         }
@@ -1967,6 +1879,7 @@
             if (e.key === 'Escape') closeLightbox();
         });
 
+        // Smooth scroll behavior
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1976,6 +1889,7 @@
             });
         });
 
+        // Add hover effects for data tables
         document.querySelectorAll('.data-table tr').forEach(row => {
             row.addEventListener('mouseenter', function() {
                 this.style.transition = 'all 0.3s';
