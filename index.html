@@ -93,11 +93,10 @@
             letter-spacing: -2px;
             line-height: 1;
             margin-bottom: 8px;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            background: linear-gradient(135deg, var(--accent-color) 0%, #ff8e8e 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            display: inline-block;
         }
 
         .stat-label {
@@ -301,7 +300,7 @@
         }
 
         .project-tag {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 10px;
             margin-bottom: 15px;
@@ -705,7 +704,7 @@
             align-items: center;
             gap: 10px;
             padding: 14px 32px;
-            background: var(--accent-color);
+            background: var(--text-color);
             color: white;
             border: none;
             border-radius: 30px;
@@ -1020,9 +1019,8 @@
             h1 { font-size: 1.8rem; letter-spacing: 4px; }
             .hero-stats { gap: 20px; }
             .stat-number { font-size: 2.5rem; }
-            nav { gap: 8px; padding: 10px; position: relative; top: 0; flex-wrap: wrap; justify-content: center; }
-            .nav-btn { padding: 8px 16px; font-size: 0.8rem; }
-            .nav-btn.active { background-color: var(--text-color); color: white; }
+            nav { gap: 10px; padding: 10px; position: relative; top: 0; }
+            .nav-btn { padding: 10px 20px; font-size: 0.85rem; }
             .poster-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
             .resume-container { grid-template-columns: 1fr; gap: 30px; }
             .analysis-container { padding: 20px; }
@@ -1033,19 +1031,14 @@
             .project-tabs { overflow-x: auto; }
             .accounts-overview { grid-template-columns: 1fr; }
             .ppt-grid { grid-template-columns: 1fr; }
-            .download-btn { padding: 12px 20px; font-size: 0.85rem; }
         }
 
         @media (max-width: 480px) {
-            nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-            .nav-btn { text-align: center; padding: 10px 8px; font-size: 0.75rem; }
             .video-grid { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; }
             .centered-grid { flex-direction: column; align-items: center; }
             .social-grid { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; }
         }
     </style>
-    <link rel="preload" as="image" href="tinified/resume-C.jpg">
-    <link rel="preload" as="image" href="tinified/resume-E.jpg">
 </head>
 <body>
 
@@ -1071,10 +1064,10 @@
         </header>
 
         <nav>
-            <button class="nav-btn active" onclick="showSection('resume', this)">简历 CV</button>
-            <button class="nav-btn" onclick="showSection('social', this)">自媒体 Social</button>
-            <button class="nav-btn" onclick="showSection('analysis', this)">数据洞察 Data</button>
-            <button class="nav-btn" onclick="showSection('posters', this)">海报 Posters</button>
+            <button class="nav-btn active" onclick="showSection('resume')">简历 CV</button>
+            <button class="nav-btn" onclick="showSection('social')">自媒体 Social</button>
+            <button class="nav-btn" onclick="showSection('analysis')">数据洞察 Data</button>
+            <button class="nav-btn" onclick="showSection('posters')">海报 Posters</button>
         </nav>
 
         <!-- Resume Section -->
@@ -1146,15 +1139,15 @@
             </div>
             <div class="centered-grid" id="viralGraphics">
                 <div class="social-item" onclick="openLightbox('tinified/w1.jpg')">
-                    <img src="tinified/w1.jpg" alt="爆款图文 1">
+                    <img src="tinified/w1.jpg" alt="爆款图文 1" loading="lazy">
                     <span class="social-badge">10k+ 👍</span>
                 </div>
                 <div class="social-item" onclick="openLightbox('tinified/w2.jpg')">
-                    <img src="tinified/w2.jpg" alt="爆款图文 2">
+                    <img src="tinified/w2.jpg" alt="爆款图文 2" loading="lazy">
                     <span class="social-badge">10k+ 👍</span>
                 </div>
                 <div class="social-item" onclick="openLightbox('tinified/w3.jpg')">
-                    <img src="tinified/w3.jpg" alt="爆款图文 3">
+                    <img src="tinified/w3.jpg" alt="爆款图文 3" loading="lazy">
                     <span class="social-badge">10k+ 👍</span>
                 </div>
             </div>
@@ -1164,20 +1157,20 @@
             </div>
             <div class="video-grid">
                 <div class="video-item" onclick="openLightbox('tinified/vw1.PNG')">
-                    <img src="tinified/vw1.PNG" alt="爆款视频 1">
+                    <img src="tinified/vw1.PNG" alt="爆款视频 1" loading="lazy">
                     <span class="social-badge">10k+ ❤️</span>
                 </div>
                 <div class="video-item" onclick="openLightbox('tinified/vw2.jpg')">
-                    <img src="tinified/vw2.jpg" alt="爆款视频 2">
+                    <img src="tinified/vw2.jpg" alt="爆款视频 2" loading="lazy">
                     <span class="social-badge">10k+ ❤️</span>
                 </div>
                 <!-- 修正：改为 vw3.jpg -->
                 <div class="video-item" onclick="openLightbox('tinified/vw3.jpg')">
-                    <img src="tinified/vw3.jpg" alt="爆款视频 3">
+                    <img src="tinified/vw3.jpg" alt="爆款视频 3" loading="lazy">
                     <span class="social-badge">10k+ ❤️</span>
                 </div>
                 <div class="video-item" onclick="openLightbox('tinified/vw4.jpg')">
-                    <img src="tinified/vw4.jpg" alt="爆款视频 4">
+                    <img src="tinified/vw4.jpg" alt="爆款视频 4" loading="lazy">
                     <span class="social-badge">10k+ ❤️</span>
                 </div>
             </div>
@@ -1187,27 +1180,27 @@
             </div>
             <div class="social-grid" id="kLikes">
                 <div class="social-item" onclick="openLightbox('tinified/k1.jpg')">
-                    <img src="tinified/k1.jpg" alt="千赞 1">
+                    <img src="tinified/k1.jpg" alt="千赞 1" loading="lazy">
                     <span class="social-badge">1k+ 👍</span>
                 </div>
                 <div class="social-item" onclick="openLightbox('tinified/k2.jpg')">
-                    <img src="tinified/k2.jpg" alt="千赞 2">
+                    <img src="tinified/k2.jpg" alt="千赞 2" loading="lazy">
                     <span class="social-badge">1k+ 👍</span>
                 </div>
                 <div class="social-item" onclick="openLightbox('tinified/k3.jpg')">
-                    <img src="tinified/k3.jpg" alt="千赞 3">
+                    <img src="tinified/k3.jpg" alt="千赞 3" loading="lazy">
                     <span class="social-badge">1k+ 👍</span>
                 </div>
                 <div class="social-item" onclick="openLightbox('tinified/k4.jpg')">
-                    <img src="tinified/k4.jpg" alt="千赞 4">
+                    <img src="tinified/k4.jpg" alt="千赞 4" loading="lazy">
                     <span class="social-badge">1k+ 👍</span>
                 </div>
                 <div class="social-item" onclick="openLightbox('tinified/k5.jpg')">
-                    <img src="tinified/k5.jpg" alt="千赞 5">
+                    <img src="tinified/k5.jpg" alt="千赞 5" loading="lazy">
                     <span class="social-badge">1k+ 👍</span>
                 </div>
                 <div class="social-item" onclick="openLightbox('tinified/k6.jpg')">
-                    <img src="tinified/k6.jpg" alt="千赞 6">
+                    <img src="tinified/k6.jpg" alt="千赞 6" loading="lazy">
                     <span class="social-badge">1k+ 👍</span>
                 </div>
             </div>
@@ -1223,9 +1216,9 @@
 
                 <!-- Project Selection Tabs -->
                 <div class="project-tabs">
-                    <button class="project-tab active" onclick="switchProject('exposure', this)">高点赞账号分析</button>
-                    <button class="project-tab" onclick="switchProject('conversion', this)">高商业转化账号分析</button>
-                    <button class="project-tab" onclick="switchProject('brand', this)">欧莱雅品牌策略分析</button>
+                    <button class="project-tab active" onclick="switchProject('exposure')">高点赞账号分析</button>
+                    <button class="project-tab" onclick="switchProject('conversion')">高商业转化账号分析</button>
+                    <button class="project-tab" onclick="switchProject('brand')">欧莱雅品牌策略分析</button>
                 </div>
 
                 <!-- Project 1: 高点赞账号分析 -->
@@ -1242,19 +1235,19 @@
                         <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">高赞内容运营分析报告关键页面预览</p>
                         <div class="ppt-grid">
                             <div class="ppt-item" onclick="openLightbox('tinified/高点赞1.png')">
-                                <img src="tinified/高点赞1.png" alt="高赞报告页面1">
+                                <img src="tinified/高点赞1.png" alt="高赞报告页面1" loading="lazy">
                                 <div class="ppt-label">账号高赞曝光概览</div>
                             </div>
                             <div class="ppt-item" onclick="openLightbox('tinified/高点赞2.png')">
-                                <img src="tinified/高点赞2.png" alt="高赞报告页面2">
+                                <img src="tinified/高点赞2.png" alt="高赞报告页面2" loading="lazy">
                                 <div class="ppt-label">高赞笔记复盘</div>
                             </div>
                             <div class="ppt-item" onclick="openLightbox('tinified/高点赞3.png')">
-                                <img src="tinified/高点赞3.png" alt="高赞报告页面3">
+                                <img src="tinified/高点赞3.png" alt="高赞报告页面3" loading="lazy">
                                 <div class="ppt-label">高赞选题矩阵</div>
                             </div>
                             <div class="ppt-item" onclick="openLightbox('tinified/高点赞4.png')">
-                                <img src="tinified/高点赞4.png" alt="高赞报告页面4">
+                                <img src="tinified/高点赞4.png" alt="高赞报告页面4" loading="lazy">
                                 <div class="ppt-label">高赞内容生产方法论</div>
                             </div>
                         </div>
@@ -1412,19 +1405,19 @@
                         <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">商业价值内容运营分析报告关键页面预览</p>
                         <div class="ppt-grid">
                             <div class="ppt-item" onclick="openLightbox('tinified/商业1.png')">
-                                <img src="tinified/商业1.png" alt="商业报告页面1">
+                                <img src="tinified/商业1.png" alt="商业报告页面1" loading="lazy">
                                 <div class="ppt-label">账号商业价值概览</div>
                             </div>
                             <div class="ppt-item" onclick="openLightbox('tinified/商业2.png')">
-                                <img src="tinified/商业2.png" alt="商业报告页面2">
+                                <img src="tinified/商业2.png" alt="商业报告页面2" loading="lazy">
                                 <div class="ppt-label">受众消费画像</div>
                             </div>
                             <div class="ppt-item" onclick="openLightbox('tinified/商业3.png')">
-                                <img src="tinified/商业3.png" alt="商业报告页面3">
+                                <img src="tinified/商业3.png" alt="商业报告页面3" loading="lazy">
                                 <div class="ppt-label">品类商业适配矩阵</div>
                             </div>
                             <div class="ppt-item" onclick="openLightbox('tinified/商业4.png')">
-                                <img src="tinified/商业4.png" alt="商业报告页面4">
+                                <img src="tinified/商业4.png" alt="商业报告页面4" loading="lazy">
                                 <div class="ppt-label">商业内容生产方法论</div>
                             </div>
                         </div>
@@ -1564,19 +1557,19 @@
                         <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">欧莱雅小红书内容策略分析报告关键页面预览</p>
                         <div class="ppt-grid">
                             <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅1.png')">
-                                <img src="tinified/欧莱雅1.png" alt="欧莱雅报告页面1">
+                                <img src="tinified/欧莱雅1.png" alt="欧莱雅报告页面1" loading="lazy">
                                 <div class="ppt-label">数据概览与发布者分布</div>
                             </div>
                             <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅2.png')">
-                                <img src="tinified/欧莱雅2.png" alt="欧莱雅报告页面2">
+                                <img src="tinified/欧莱雅2.png" alt="欧莱雅报告页面2" loading="lazy">
                                 <div class="ppt-label">叙事钩子频率分析</div>
                             </div>
                             <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅3.png')">
-                                <img src="tinified/欧莱雅3.png" alt="欧莱雅报告页面3">
+                                <img src="tinified/欧莱雅3.png" alt="欧莱雅报告页面3" loading="lazy">
                                 <div class="ppt-label">竞品对标分析</div>
                             </div>
                             <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅4.png')">
-                                <img src="tinified/欧莱雅4.png" alt="欧莱雅报告页面4">
+                                <img src="tinified/欧莱雅4.png" alt="欧莱雅报告页面4" loading="lazy">
                                 <div class="ppt-label">品牌策略建议</div>
                             </div>
                         </div>
@@ -1817,27 +1810,14 @@
         // Start animation when page loads
         window.addEventListener('load', () => {
             animateValue("totalLikes", 0, 600000, 2000);
-            initPosters();
-            // 立刻预加载所有非首屏图片，点tab时秒出
-            [
-                'tinified/w1.jpg','tinified/w2.jpg','tinified/w3.jpg',
-                'tinified/vw1.PNG','tinified/vw2.jpg','tinified/vw3.jpg','tinified/vw4.jpg',
-                'tinified/k1.jpg','tinified/k2.jpg','tinified/k3.jpg',
-                'tinified/k4.jpg','tinified/k5.jpg','tinified/k6.jpg',
-                'tinified/高点赞1.png','tinified/高点赞2.png','tinified/高点赞3.png','tinified/高点赞4.png',
-                'tinified/商业1.png','tinified/商业2.png','tinified/商业3.png','tinified/商业4.png',
-                'tinified/欧莱雅1.png','tinified/欧莱雅2.png','tinified/欧莱雅3.png','tinified/欧莱雅4.png',
-                'tinified/poster2.PNG','tinified/poster3.JPG','tinified/poster4.JPG','tinified/poster5.JPG',
-                'tinified/poster6.JPG','tinified/poster7.JPG','tinified/poster8.JPG','tinified/poster9.JPG','tinified/poster10.JPG'
-            ].forEach(src => { new Image().src = src; });
         });
 
         const posterFiles = [
-            'tinified/poster2.PNG', 'tinified/poster3.JPG', 'tinified/poster4.JPG', 'tinified/poster5.JPG',
+            'tinified/poster1.PNG', 'tinified/poster2.PNG', 'tinified/poster3.JPG', 'tinified/poster4.JPG', 'tinified/poster5.JPG',
             'tinified/poster6.JPG', 'tinified/poster7.JPG', 'tinified/poster8.JPG', 'tinified/poster9.JPG', 'tinified/poster10.JPG'
         ];
 
-        function showSection(sectionName, el) {
+        function showSection(sectionName) {
             document.querySelectorAll('.content-section').forEach(section => {
                 section.classList.remove('active');
             });
@@ -1845,14 +1825,14 @@
                 btn.classList.remove('active');
             });
             document.getElementById(sectionName).classList.add('active');
-            el.classList.add('active');
+            event.target.classList.add('active');
             
             if (sectionName === 'posters' && document.getElementById('posterGrid').children.length === 0) {
                 initPosters();
             }
         }
 
-        function switchProject(projectType, el) {
+        function switchProject(projectType) {
             // Hide all project contents
             document.querySelectorAll('.project-content').forEach(content => {
                 content.classList.remove('active');
@@ -1863,7 +1843,7 @@
             
             // Show selected
             document.getElementById(projectType + '-project').classList.add('active');
-            el.classList.add('active');
+            event.target.classList.add('active');
         }
 
         function initPosters() {
@@ -1873,7 +1853,7 @@
                 item.className = 'poster-item';
                 item.onclick = () => openLightbox(file);
                 item.innerHTML = `
-                    <img src="${file}" alt="Poster ${index + 1}" onerror="this.parentElement.style.display='none'">
+                    <img src="${file}" alt="Poster ${index + 1}" loading="lazy" onerror="this.parentElement.style.display='none'">
                     <div class="poster-overlay">
                         <p style="font-weight: 500;">Poster ${index + 1}</p>
                         <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 5px;">点击查看大图</p>
