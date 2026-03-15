@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoey's Portfolio | AI-Enhanced Content Creator</title>
+    
+    <!-- 1. 首屏简历图片：立即全力预加载 -->
+    <link rel="preload" as="image" href="tinified/resume-C.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="tinified/resume-E.jpg" fetchpriority="high">
+    
     <style>
         * {
             margin: 0;
@@ -12,1911 +16,1971 @@
             box-sizing: border-box;
         }
 
-```
-    :root {
-        --bg-color: #fafafa;
-        --text-color: #1a1a1a;
-        --accent-color: #ff6b6b;
-        --secondary-color: #f0f0f0;
-        --border-color: #e0e0e0;
-        --card-bg: #ffffff;
-        --success-color: #52c41a;
-    }
-
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        line-height: 1.6;
-        overflow-x: hidden;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 40px 20px;
-    }
-
-    header {
-        text-align: center;
-        margin-bottom: 60px;
-        padding: 40px 0;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    h1 {
-        font-size: 2.5rem;
-        font-weight: 300;
-        letter-spacing: 8px;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-    }
-
-    .subtitle {
-        color: #666;
-        font-size: 0.9rem;
-        letter-spacing: 2px;
-        margin-bottom: 30px;
-    }
-
-    .hero-stats {
-        display: flex;
-        justify-content: center;
-        gap: 60px;
-        margin-top: 30px;
-        flex-wrap: wrap;
-    }
-
-    .stat-item {
-        text-align: center;
-        position: relative;
-        padding: 20px;
-    }
-
-    .stat-item::after {
-        content: '';
-        position: absolute;
-        right: -30px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 1px;
-        height: 60px;
-        background: var(--border-color);
-    }
-
-    .stat-item:last-child::after {
-        display: none;
-    }
-
-    .stat-number {
-        font-size: 3.5rem;
-        font-weight: 300;
-        color: var(--accent-color);
-        letter-spacing: -2px;
-        line-height: 1;
-        margin-bottom: 8px;
-    }
-
-    .stat-label {
-        font-size: 0.85rem;
-        color: #666;
-        margin-top: 8px;
-        letter-spacing: 1px;
-        line-height: 1.4;
-    }
-
-    nav {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-bottom: 50px;
-        flex-wrap: wrap;
-        position: sticky;
-        top: 20px;
-        z-index: 100;
-        background: rgba(250, 250, 250, 0.9);
-        backdrop-filter: blur(10px);
-        padding: 15px;
-        border-radius: 50px;
-        border: 1px solid var(--border-color);
-        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    }
-
-    .nav-btn {
-        padding: 12px 30px;
-        border: none;
-        background: transparent;
-        cursor: pointer;
-        font-size: 0.9rem;
-        letter-spacing: 1px;
-        transition: all 0.3s ease;
-        color: var(--text-color);
-        border-radius: 25px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .nav-btn:hover {
-        background: var(--secondary-color);
-        transform: translateY(-2px);
-    }
-
-    .nav-btn.active {
-        background-color: var(--text-color);
-        color: white;
-    }
-
-    .content-section {
-        display: none;
-        animation: fadeIn 0.6s ease;
-    }
-
-    .content-section.active {
-        display: block;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Resume Section */
-    .resume-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 40px;
-        margin-top: 20px;
-    }
-
-    .resume-card {
-        background: var(--card-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        cursor: pointer;
-    }
-
-    .resume-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-
-    .resume-header {
-        padding: 20px;
-        background-color: var(--secondary-color);
-        border-bottom: 1px solid var(--border-color);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .resume-title {
-        font-size: 1.2rem;
-        font-weight: 500;
-    }
-
-    .lang-badge {
-        padding: 4px 12px;
-        background-color: var(--text-color);
-        color: white;
-        font-size: 0.75rem;
-        border-radius: 20px;
-    }
-
-    .resume-image {
-        width: 100%;
-        height: auto;
-        display: block;
-        background-color: #f5f5f5;
-        min-height: 400px;
-        object-fit: cover;
-    }
-
-    /* Data Analysis Section */
-    .analysis-container {
-        background: var(--card-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        padding: 40px;
-        margin-bottom: 30px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-    }
-
-    .analysis-header {
-        text-align: center;
-        margin-bottom: 40px;
-        padding-bottom: 30px;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .analysis-title {
-        font-size: 2rem;
-        font-weight: 400;
-        margin-bottom: 10px;
-        letter-spacing: 2px;
-    }
-
-    .analysis-subtitle {
-        color: #666;
-        font-size: 0.9rem;
-        margin-top: 10px;
-    }
-
-    /* Project Tabs */
-    .project-tabs {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 30px;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 10px;
-        overflow-x: auto;
-    }
-
-    .project-tab {
-        padding: 12px 28px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        font-size: 0.9rem;
-        color: #666;
-        position: relative;
-        transition: all 0.3s;
-        border-radius: 20px;
-        white-space: nowrap;
-        flex-shrink: 0;
-        font-weight: 500;
-    }
-
-    .project-tab:hover {
-        color: var(--text-color);
-        background: var(--secondary-color);
-    }
-
-    .project-tab.active {
-        color: var(--accent-color);
-        font-weight: 600;
-    }
-
-    .project-tab.active::after {
-        content: '';
-        position: absolute;
-        bottom: -12px;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: var(--accent-color);
-    }
-
-    .project-content {
-        display: none;
-    }
-
-    .project-content.active {
-        display: block;
-        animation: fadeIn 0.5s ease;
-    }
-
-    .project-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 15px;
-        flex-wrap: wrap;
-    }
-
-    .project-number {
-        background: var(--text-color);
-        color: white;
-        padding: 6px 14px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-    }
-
-    .project-desc {
-        color: #666;
-        font-size: 0.9rem;
-    }
-
-    .logic-tag {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 4px 12px;
-        border-radius: 4px;
-        font-size: 0.75rem;
-        font-weight: 600;
-    }
-
-    .project-intro {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        border-left: 4px solid var(--accent-color);
-        padding: 20px;
-        border-radius: 8px;
-        margin-bottom: 30px;
-        font-size: 0.95rem;
-        color: #555;
-        line-height: 1.8;
-    }
-
-    .insight-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-        margin-top: 30px;
-    }
-
-    .insight-card {
-        background: var(--card-bg);
-        border-radius: 8px;
-        padding: 25px;
-        border-left: 4px solid var(--accent-color);
-        transition: all 0.3s ease;
-        border: 1px solid var(--border-color);
-        border-left-width: 4px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .insight-card:hover {
-        transform: translateX(5px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    .insight-label {
-        font-size: 0.75rem;
-        color: var(--accent-color);
-        font-weight: 600;
-        letter-spacing: 1px;
-        margin-bottom: 8px;
-        text-transform: uppercase;
-    }
-
-    .insight-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 10px;
-    }
-
-    .insight-desc {
-        font-size: 0.9rem;
-        color: #666;
-        line-height: 1.6;
-    }
-
-    .highlight {
-        color: var(--accent-color);
-        font-weight: 600;
-    }
-
-    /* Data Tables */
-    .data-section {
-        margin-top: 40px;
-        padding-top: 40px;
-        border-top: 1px solid var(--border-color);
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-        font-weight: 500;
-        margin-bottom: 20px;
-        letter-spacing: 1px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .section-title::before {
-        content: '';
-        width: 4px;
-        height: 24px;
-        background: var(--accent-color);
-        border-radius: 2px;
-    }
-
-    .data-table-container {
-        overflow-x: auto;
-        margin-top: 20px;
-        border-radius: 8px;
-        border: 1px solid var(--border-color);
-    }
-
-    .data-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-        background: var(--card-bg);
-    }
-
-    .data-table th,
-    .data-table td {
-        padding: 16px 14px;
-        text-align: left;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .data-table th {
-        background: var(--secondary-color);
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        color: #666;
-        position: sticky;
-        top: 0;
-    }
-
-    .data-table tr:hover {
-        background: rgba(255,107,107,0.03);
-    }
-
-    .data-table tr:last-child td {
-        border-bottom: none;
-    }
-
-    .badge-text {
-        display: inline-block;
-        padding: 2px 8px;
-        background: #fff1f0;
-        color: #cf1322;
-        font-size: 0.75rem;
-        border-radius: 4px;
-        border: 1px solid #ffa39e;
-        font-weight: 500;
-    }
-
-    .badge-video {
-        display: inline-block;
-        padding: 2px 8px;
-        background: #e6f7ff;
-        color: #096dd9;
-        font-size: 0.75rem;
-        border-radius: 4px;
-        border: 1px solid #91d5ff;
-        font-weight: 500;
-    }
-
-    /* Top 3 Cards */
-    .top3-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        margin: 30px 0;
-    }
-
-    .top3-card {
-        background: var(--card-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        padding: 25px;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .top3-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        border-color: var(--accent-color);
-    }
-
-    .top3-rank {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        width: 32px;
-        height: 32px;
-        background: var(--accent-color);
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 600;
-        font-size: 0.9rem;
-    }
-
-    .top3-title {
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 15px;
-        padding-right: 40px;
-        line-height: 1.4;
-    }
-
-    .top3-stats {
-        display: flex;
-        gap: 15px;
-        margin-bottom: 15px;
-        font-size: 0.85rem;
-        color: #666;
-    }
-
-    .top3-stat {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .top3-stat strong {
-        color: var(--accent-color);
-        font-size: 1.1rem;
-    }
-
-    /* Stats Row */
-    .stats-row {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        margin: 30px 0;
-    }
-
-    .stat-card {
-        background: var(--card-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 20px;
-        text-align: center;
-        transition: all 0.3s;
-    }
-
-    .stat-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    }
-
-    .stat-card-value {
-        font-size: 1.8rem;
-        font-weight: 300;
-        color: var(--accent-color);
-        margin-bottom: 5px;
-    }
-
-    .stat-card-label {
-        font-size: 0.75rem;
-        color: #999;
-        letter-spacing: 1px;
-    }
-
-    .trend-up {
-        color: var(--success-color);
-        font-size: 0.8rem;
-        margin-top: 5px;
-        display: inline-flex;
-        align-items: center;
-        gap: 2px;
-    }
-
-    /* Methodology Box */
-    .methodology-box {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        padding: 30px;
-        margin-top: 40px;
-    }
-
-    .methodology-title {
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .methodology-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-    }
-
-    .method-item {
-        display: flex;
-        gap: 15px;
-        align-items: flex-start;
-    }
-
-    .method-number {
-        width: 32px;
-        height: 32px;
-        background: var(--text-color);
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 600;
-        font-size: 0.9rem;
-        flex-shrink: 0;
-    }
-
-    .method-content h4 {
-        font-size: 1rem;
-        margin-bottom: 5px;
-        font-weight: 600;
-    }
-
-    .method-content p {
-        font-size: 0.85rem;
-        color: #666;
-        line-height: 1.5;
-    }
-
-    /* PPT Screenshots - 修改样式以完整显示图片 */
-    .ppt-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-        margin: 30px 0;
-    }
-
-    .ppt-item {
-        background: var(--card-bg);
-        border: 2px dashed #ccc;
-        border-radius: 8px;
-        overflow: hidden;
-        cursor: pointer;
-        transition: all 0.3s;
-        position: relative;
-    }
-
-    .ppt-item:hover {
-        border-color: var(--accent-color);
-        transform: translateY(-2px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    .ppt-item img {
-        width: 100%;
-        height: auto;
-        display: block;
-        /* 移除 object-fit: cover，让图片自然显示完整内容 */
-    }
-
-    .ppt-label {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0,0,0,0.7);
-        color: white;
-        padding: 8px;
-        font-size: 0.8rem;
-        text-align: center;
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-
-    .ppt-item:hover .ppt-label {
-        opacity: 1;
-    }
-
-    /* Download Button */
-    .download-section-top {
-        margin: 25px 0 40px 0;
-        text-align: center;
-    }
-
-    .download-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 14px 32px;
-        background: var(--text-color);
-        color: white;
-        border: none;
-        border-radius: 30px;
-        font-size: 1rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-    }
-
-    .download-btn:hover {
-        background: var(--accent-color);
-        transform: translateY(-2px);
-        box-shadow: 0 10px 30px rgba(255,107,107,0.3);
-    }
-
-    .download-btn svg {
-        width: 20px;
-        height: 20px;
-    }
-
-    /* Social Section */
-    .accounts-overview {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        margin-bottom: 40px;
-    }
-
-    .account-card {
-        background: var(--card-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 25px;
-        text-align: center;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .account-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-
-    .account-card.featured::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: var(--accent-color);
-    }
-
-    .platform-icon {
-        font-size: 2rem;
-        margin-bottom: 10px;
-    }
-
-    .account-name {
-        font-size: 1.1rem;
-        font-weight: 500;
-        margin-bottom: 5px;
-    }
-
-    .account-desc {
-        font-size: 0.8rem;
-        color: #666;
-        margin-bottom: 15px;
-        height: 40px;
-    }
-
-    .account-stats {
-        font-size: 1.8rem;
-        font-weight: 300;
-        color: var(--accent-color);
-        margin-bottom: 5px;
-    }
-
-    .account-label {
-        font-size: 0.75rem;
-        color: #999;
-        letter-spacing: 1px;
-    }
-
-    .badge {
-        display: inline-block;
-        padding: 4px 8px;
-        background: var(--accent-color);
-        color: white;
-        font-size: 0.7rem;
-        border-radius: 4px;
-        margin-top: 10px;
-        letter-spacing: 1px;
-    }
-
-    .poster-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 25px;
-        margin-top: 20px;
-    }
-
-    .poster-item {
-        position: relative;
-        aspect-ratio: 3/4;
-        overflow: hidden;
-        border-radius: 8px;
-        cursor: pointer;
-        background-color: var(--secondary-color);
-        transition: all 0.3s ease;
-    }
-
-    .poster-item:hover {
-        transform: scale(1.02);
-        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    }
-
-    .poster-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-    }
-
-    .poster-item:hover img {
-        transform: scale(1.1);
-    }
-
-    .poster-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-        color: white;
-        padding: 20px;
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-
-    .poster-item:hover .poster-overlay {
-        opacity: 1;
-    }
-
-    .section-divider {
-        margin: 50px 0 30px;
-        text-align: center;
-        position: relative;
-    }
-
-    .section-divider::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: var(--border-color);
-        z-index: 1;
-    }
-
-    .section-divider h3 {
-        display: inline-block;
-        background: var(--bg-color);
-        padding: 0 20px;
-        position: relative;
-        z-index: 2;
-        font-weight: 400;
-        color: #666;
-        font-size: 1.1rem;
-    }
-
-    .centered-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 20px;
-    }
-
-    .social-item {
-        position: relative;
-        width: 280px;
-        overflow: hidden;
-        border-radius: 8px;
-        cursor: pointer;
-        background-color: var(--secondary-color);
-        border: 1px solid var(--border-color);
-        transition: all 0.3s ease;
-        flex-shrink: 0;
-    }
-
-    .social-item:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    .social-item img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .social-badge {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: rgba(0,0,0,0.8);
-        color: white;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 500;
-        z-index: 2;
-    }
-
-    .video-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        max-width: 1200px;
-        margin: 20px auto 0;
-    }
-
-    .video-item {
-        position: relative;
-        overflow: hidden;
-        border-radius: 8px;
-        cursor: pointer;
-        background-color: var(--secondary-color);
-        border: 1px solid var(--border-color);
-        transition: all 0.3s ease;
-    }
-
-    .video-item:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    .video-item img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .social-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
-    }
-
-    .caption {
-        text-align: center;
-        margin-top: 10px;
-        font-size: 0.85rem;
-        color: #666;
-    }
-
-    .lightbox {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.95);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        padding: 20px;
-    }
-
-    .lightbox.active {
-        display: flex;
-    }
-
-    .lightbox img {
-        max-width: 90%;
-        max-height: 90%;
-        object-fit: contain;
-        border-radius: 4px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    }
-
-    .lightbox-close {
-        position: absolute;
-        top: 30px;
-        right: 40px;
-        color: white;
-        font-size: 40px;
-        cursor: pointer;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1001;
-    }
-
-    @media (max-width: 1024px) {
-        .video-grid { grid-template-columns: repeat(2, 1fr); }
-        .stats-row { grid-template-columns: repeat(3, 1fr); }
-        .stat-item::after { display: none; }
-        .top3-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 768px) {
-        h1 { font-size: 1.8rem; letter-spacing: 4px; }
-        .hero-stats { gap: 20px; }
-        .stat-number { font-size: 2.5rem; }
-        nav { gap: 10px; padding: 10px; position: relative; top: 0; }
-        .nav-btn { padding: 10px 20px; font-size: 0.85rem; }
-        .poster-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
-        .resume-container { grid-template-columns: 1fr; gap: 30px; }
-        .analysis-container { padding: 20px; }
-        .insight-grid { grid-template-columns: 1fr; }
-        .video-grid { grid-template-columns: repeat(2, 1fr); }
-        .social-item { width: 100%; max-width: 300px; }
-        .stats-row { grid-template-columns: 1fr; }
-        .project-tabs { overflow-x: auto; }
-        .accounts-overview { grid-template-columns: 1fr; }
-        .ppt-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 480px) {
-        .video-grid { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; }
-        .centered-grid { flex-direction: column; align-items: center; }
-        .social-grid { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; }
-    }
-</style>
-<link rel="preload" as="image" href="tinified/resume-C.jpg">
-<link rel="preload" as="image" href="tinified/resume-E.jpg">
-```
-
+        :root {
+            --bg-color: #fafafa;
+            --text-color: #1a1a1a;
+            --accent-color: #ff6b6b;
+            --secondary-color: #f0f0f0;
+            --border-color: #e0e0e0;
+            --card-bg: #ffffff;
+            --success-color: #52c41a;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60px;
+            background: var(--border-color);
+        }
+
+        .stat-item:last-child::after {
+            display: none;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--accent-color);
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #ff8e8e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 8px;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            background: rgba(250, 250, 250, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-btn {
+            padding: 12px 30px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            color: var(--text-color);
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.active {
+            background-color: var(--text-color);
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Resume Section */
+        .resume-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .resume-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resume-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .resume-header {
+            padding: 20px;
+            background-color: var(--secondary-color);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .resume-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .lang-badge {
+            padding: 4px 12px;
+            background-color: var(--text-color);
+            color: white;
+            font-size: 0.75rem;
+            border-radius: 20px;
+        }
+
+        .resume-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            background-color: #f5f5f5;
+            min-height: 400px;
+            object-fit: cover;
+        }
+
+        /* Data Analysis Section */
+        .analysis-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .analysis-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .analysis-title {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .analysis-subtitle {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* Project Tabs */
+        .project-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            overflow-x: auto;
+        }
+
+        .project-tab {
+            padding: 12px 28px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #666;
+            position: relative;
+            transition: all 0.3s;
+            border-radius: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            font-weight: 500;
+        }
+
+        .project-tab:hover {
+            color: var(--text-color);
+            background: var(--secondary-color);
+        }
+
+        .project-tab.active {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .project-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        .project-content {
+            display: none;
+        }
+
+        .project-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .project-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .project-number {
+            background: var(--text-color);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .logic-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .project-intro {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .insight-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            border-left-width: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insight-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .insight-label {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .insight-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .insight-desc {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Data Tables */
+        .data-section {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .data-table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            background: var(--card-bg);
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 16px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            background: var(--secondary-color);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #666;
+            position: sticky;
+            top: 0;
+        }
+
+        .data-table tr:hover {
+            background: rgba(255,107,107,0.03);
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge-text {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #fff1f0;
+            color: #cf1322;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            border: 1px solid #ffa39e;
+            font-weight: 500;
+        }
+
+        .badge-video {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #e6f7ff;
+            color: #096dd9;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            border: 1px solid #91d5ff;
+            font-weight: 500;
+        }
+
+        /* Top 3 Cards */
+        .top3-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .top3-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top3-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: var(--accent-color);
+        }
+
+        .top3-rank {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 32px;
+            height: 32px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .top3-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-right: 40px;
+            line-height: 1.4;
+        }
+
+        .top3-stats {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .top3-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top3-stat strong {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .stat-card-value {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-card-label {
+            font-size: 0.75rem;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        .trend-up {
+            color: var(--success-color);
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        /* Methodology Box */
+        .methodology-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .methodology-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .method-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .method-number {
+            width: 32px;
+            height: 32px;
+            background: var(--text-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .method-content h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .method-content p {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* PPT Screenshots */
+        .ppt-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .ppt-item {
+            background: var(--card-bg);
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .ppt-item:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .ppt-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .ppt-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px;
+            font-size: 0.8rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .ppt-item:hover .ppt-label {
+            opacity: 1;
+        }
+
+        /* Download Button */
+        .download-section-top {
+            margin: 25px 0 40px 0;
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--text-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255,107,107,0.3);
+        }
+
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Social Section */
+        .accounts-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .account-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .account-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .account-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-color);
+        }
+
+        .platform-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .account-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .account-desc {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 15px;
+            height: 40px;
+        }
+
+        .account-stats {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .account-label {
+            font-size: 0.75rem;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            background: var(--accent-color);
+            color: white;
+            font-size: 0.7rem;
+            border-radius: 4px;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        .poster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .poster-item {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        .poster-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .poster-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .poster-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .poster-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .poster-item:hover .poster-overlay {
+            opacity: 1;
+        }
+
+        .section-divider {
+            margin: 50px 0 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--border-color);
+            z-index: 1;
+        }
+
+        .section-divider h3 {
+            display: inline-block;
+            background: var(--bg-color);
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            font-weight: 400;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .centered-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-item {
+            position: relative;
+            width: 280px;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: var(--secondary-color);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .social-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .social-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .social-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            z-index: 2;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto 0;
+        }
+
+        .video-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: var(--secondary-color);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .video-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .caption {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+
+        @media (max-width: 1024px) {
+            .video-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-row { grid-template-columns: repeat(3, 1fr); }
+            .stat-item::after { display: none; }
+            .top3-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; letter-spacing: 4px; }
+            .hero-stats { gap: 20px; }
+            .stat-number { font-size: 2.5rem; }
+            nav { gap: 10px; padding: 10px; position: relative; top: 0; }
+            .nav-btn { padding: 10px 20px; font-size: 0.85rem; }
+            .poster-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
+            .resume-container { grid-template-columns: 1fr; gap: 30px; }
+            .analysis-container { padding: 20px; }
+            .insight-grid { grid-template-columns: 1fr; }
+            .video-grid { grid-template-columns: repeat(2, 1fr); }
+            .social-item { width: 100%; max-width: 300px; }
+            .stats-row { grid-template-columns: 1fr; }
+            .project-tabs { overflow-x: auto; }
+            .accounts-overview { grid-template-columns: 1fr; }
+            .ppt-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .video-grid { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; }
+            .centered-grid { flex-direction: column; align-items: center; }
+            .social-grid { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; }
+        }
+    </style>
 </head>
 <body>
 
-```
-<div class="container">
-    <header>
-        <h1>Zoey's Portfolio</h1>
-        <p class="subtitle">AI-Enhanced Content Creator / Growth Strategist</p>
+    <div class="container">
+        <header>
+            <h1>Zoey's Portfolio</h1>
+            <p class="subtitle">AI-Enhanced Content Creator / Growth Strategist</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="totalLikes">0</div>
+                    <div class="stat-label">全网总获赞<br>Cross-platform Likes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">矩阵账号运营<br>Managed Accounts</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">万赞爆款内容<br>Viral Posts</div>
+                </div>
+            </div>
+        </header>
+
+        <nav>
+            <button class="nav-btn active" onclick="showSection('resume')">简历 CV</button>
+            <button class="nav-btn" onclick="showSection('social')">自媒体 Social</button>
+            <button class="nav-btn" onclick="showSection('analysis')">数据洞察 Data</button>
+            <button class="nav-btn" onclick="showSection('posters')">海报 Posters</button>
+        </nav>
+
+        <!-- Resume Section -->
+        <section id="resume" class="content-section active">
+            <div class="resume-container">
+                <div class="resume-card" onclick="openLightbox('tinified/resume-C.jpg')">
+                    <div class="resume-header">
+                        <span class="resume-title">中文简历</span>
+                        <span class="lang-badge">CN</span>
+                    </div>
+                    <img src="tinified/resume-C.jpg" alt="中文简历" class="resume-image" fetchpriority="high" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22800%22%3E%3Crect width=%22600%22 height=%22800%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22%3E中文简历预览%3C/text%3E%3C/svg%3E'">
+                </div>
+
+                <div class="resume-card" onclick="openLightbox('tinified/resume-E.jpg')">
+                    <div class="resume-header">
+                        <span class="resume-title">English Resume</span>
+                        <span class="lang-badge">EN</span>
+                    </div>
+                    <img src="tinified/resume-E.jpg" alt="English Resume" class="resume-image" fetchpriority="high" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22800%22%3E%3Crect width=%22600%22 height=%22800%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22%3EEnglish Resume Preview%3C/text%3E%3C/svg%3E'">
+                </div>
+            </div>
+            <p class="caption">点击卡片查看完整简历 / Click to view full resume</p>
+        </section>
+
+        <!-- Social Media Section -->
+        <section id="social" class="content-section">
+            <div class="section-divider">
+                <h3>账号矩阵总览 / Account Overview</h3>
+            </div>
+            
+            <div class="accounts-overview">
+                <div class="account-card featured">
+                    <div class="platform-icon">📕</div>
+                    <div class="account-name">Fawkes</div>
+                    <div class="account-desc">主账号 | 女性主义深度内容</div>
+                    <div class="account-stats">330K+</div>
+                    <div class="account-label">获赞数</div>
+                    <span class="badge">主阵地</span>
+                </div>
+                
+                <div class="account-card">
+                    <div class="platform-icon">📕</div>
+                    <div class="account-name">我能早睡</div>
+                    <div class="account-desc">副账号 | 生活碎碎念</div>
+                    <div class="account-stats">110K+</div>
+                    <div class="account-label">获赞数</div>
+                </div>
+                
+                <div class="account-card featured">
+                    <div class="platform-icon">📕</div>
+                    <div class="account-name">小e不吃葱</div>
+                    <div class="account-desc">副账号 | 数码宅女/Switch</div>
+                    <div class="account-stats">30K+</div>
+                    <div class="account-label">获赞数</div>
+                    <span class="badge">高变现</span>
+                </div>
+                
+                <div class="account-card">
+                    <div class="platform-icon">🎵</div>
+                    <div class="account-name">Gdi_k2743</div>
+                    <div class="account-desc">抖音 | 日常Vlog</div>
+                    <div class="account-stats">140K+</div>
+                    <div class="account-label">获赞数</div>
+                </div>
+            </div>
+
+            <div class="section-divider">
+                <h3>图文破万赞精选 / Viral Graphics (11篇突破万赞)</h3>
+            </div>
+            <div class="centered-grid" id="viralGraphics">
+                <div class="social-item" onclick="openLightbox('tinified/w1.jpg')">
+                    <img src="tinified/w1.jpg" alt="爆款图文 1" loading="lazy">
+                    <span class="social-badge">10k+ 👍</span>
+                </div>
+                <div class="social-item" onclick="openLightbox('tinified/w2.jpg')">
+                    <img src="tinified/w2.jpg" alt="爆款图文 2" loading="lazy">
+                    <span class="social-badge">10k+ 👍</span>
+                </div>
+                <div class="social-item" onclick="openLightbox('tinified/w3.jpg')">
+                    <img src="tinified/w3.jpg" alt="爆款图文 3" loading="lazy">
+                    <span class="social-badge">10k+ 👍</span>
+                </div>
+            </div>
+
+            <div class="section-divider">
+                <h3>视频破万赞精选 / Viral Videos (4篇)</h3>
+            </div>
+            <div class="video-grid">
+                <div class="video-item" onclick="openLightbox('tinified/vw1.PNG')">
+                    <img src="tinified/vw1.PNG" alt="爆款视频 1" loading="lazy">
+                    <span class="social-badge">10k+ ❤️</span>
+                </div>
+                <div class="video-item" onclick="openLightbox('tinified/vw2.jpg')">
+                    <img src="tinified/vw2.jpg" alt="爆款视频 2" loading="lazy">
+                    <span class="social-badge">10k+ ❤️</span>
+                </div>
+                <div class="video-item" onclick="openLightbox('tinified/vw3.jpg')">
+                    <img src="tinified/vw3.jpg" alt="爆款视频 3" loading="lazy">
+                    <span class="social-badge">10k+ ❤️</span>
+                </div>
+                <div class="video-item" onclick="openLightbox('tinified/vw4.jpg')">
+                    <img src="tinified/vw4.jpg" alt="爆款视频 4" loading="lazy">
+                    <span class="social-badge">10k+ ❤️</span>
+                </div>
+            </div>
+
+            <div class="section-divider">
+                <h3>破千赞精选 / 1k+ Likes Selection (36篇)</h3>
+            </div>
+            <div class="social-grid" id="kLikes">
+                <div class="social-item" onclick="openLightbox('tinified/k1.jpg')">
+                    <img src="tinified/k1.jpg" alt="千赞 1" loading="lazy">
+                    <span class="social-badge">1k+ 👍</span>
+                </div>
+                <div class="social-item" onclick="openLightbox('tinified/k2.jpg')">
+                    <img src="tinified/k2.jpg" alt="千赞 2" loading="lazy">
+                    <span class="social-badge">1k+ 👍</span>
+                </div>
+                <div class="social-item" onclick="openLightbox('tinified/k3.jpg')">
+                    <img src="tinified/k3.jpg" alt="千赞 3" loading="lazy">
+                    <span class="social-badge">1k+ 👍</span>
+                </div>
+                <div class="social-item" onclick="openLightbox('tinified/k4.jpg')">
+                    <img src="tinified/k4.jpg" alt="千赞 4" loading="lazy">
+                    <span class="social-badge">1k+ 👍</span>
+                </div>
+                <div class="social-item" onclick="openLightbox('tinified/k5.jpg')">
+                    <img src="tinified/k5.jpg" alt="千赞 5" loading="lazy">
+                    <span class="social-badge">1k+ 👍</span>
+                </div>
+                <div class="social-item" onclick="openLightbox('tinified/k6.jpg')">
+                    <img src="tinified/k6.jpg" alt="千赞 6" loading="lazy">
+                    <span class="social-badge">1k+ 👍</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Analysis Section -->
+        <section id="analysis" class="content-section">
+            <div class="analysis-container">
+                <div class="analysis-header">
+                    <h2 class="analysis-title">Content Strategy Analysis</h2>
+                    <p class="analysis-subtitle">基于真实数据的三层能力验证：曝光 → 转化 → 品牌策略</p>
+                </div>
+
+                <!-- Project Selection Tabs -->
+                <div class="project-tabs">
+                    <button class="project-tab active" onclick="switchProject('exposure')">高点赞账号分析</button>
+                    <button class="project-tab" onclick="switchProject('conversion')">高商业转化账号分析</button>
+                    <button class="project-tab" onclick="switchProject('brand')">欧莱雅品牌策略分析</button>
+                </div>
+
+                <!-- Project 1: 高点赞账号分析 -->
+                <div id="exposure-project" class="project-content active">
+                    <div class="project-tag">
+                        <span class="project-number">LAYER 01</span>
+                        <span class="logic-tag">内容引爆力</span>
+                        <span class="project-desc">理解传播机制：如何让内容获得高曝光与高点赞</span>
+                    </div>
+                    
+                    <div class="data-section" style="margin-top: 0; padding-top: 0; border-top: none;">
+                        <h3 class="section-title">PPT部分展示 / Report Preview</h3>
+                        <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">高赞内容运营分析报告关键页面预览</p>
+                        <div class="ppt-grid">
+                            <div class="ppt-item" onclick="openLightbox('tinified/高点赞1.png')">
+                                <img src="tinified/高点赞1.png" alt="高赞报告页面1" loading="lazy">
+                                <div class="ppt-label">账号高赞曝光概览</div>
+                            </div>
+                            <div class="ppt-item" onclick="openLightbox('tinified/高点赞2.png')">
+                                <img src="tinified/高点赞2.png" alt="高赞报告页面2" loading="lazy">
+                                <div class="ppt-label">高赞笔记复盘</div>
+                            </div>
+                            <div class="ppt-item" onclick="openLightbox('tinified/高点赞3.png')">
+                                <img src="tinified/高点赞3.png" alt="高赞报告页面3" loading="lazy">
+                                <div class="ppt-label">高赞选题矩阵</div>
+                            </div>
+                            <div class="ppt-item" onclick="openLightbox('tinified/高点赞4.png')">
+                                <img src="tinified/高点赞4.png" alt="高赞报告页面4" loading="lazy">
+                                <div class="ppt-label">高赞内容生产方法论</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="download-section-top">
+                        <a href="ppts/高赞账号分析报告1.0.pptx" class="download-btn" download>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            下载高赞账号分析报告
+                        </a>
+                    </div>
+
+                    <div class="project-intro">
+                        <strong>核心能力验证：</strong>从0起步的女性议题内容账号，6个月实现260万+曝光、9.7万+点赞。
+                        不依赖粉丝基数，纯粹依靠内容质量驱动流量，3篇万赞、11篇千赞，千赞率达28.2%（远超行业均值）。
+                        验证了对<strong>「情绪共鸣×强观点」</strong>内容模型的精准把控能力。
+                    </div>
+
+                    <div class="stats-row">
+                        <div class="stat-card">
+                            <div class="stat-card-value">260万+</div>
+                            <div class="stat-card-label">总曝光量</div>
+                            <div class="trend-up">6个月自然触达</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-value">9.7万+</div>
+                            <div class="stat-card-label">累计点赞量</div>
+                            <div class="trend-up">3篇万赞爆款</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-value">28.2%</div>
+                            <div class="stat-card-label">千赞率</div>
+                            <div class="trend-up">11篇千赞/39篇内容</div>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title">Top 3 万赞爆款 / Viral Hits</h3>
+                    <div class="top3-grid">
+                        <div class="top3-card">
+                            <div class="top3-rank">1</div>
+                            <div class="top3-title">我要给孩子看这样的绘本</div>
+                            <div class="top3-stats">
+                                <div class="top3-stat">
+                                    <strong>2.88万</strong>
+                                    <span>点赞</span>
+                                </div>
+                                <div class="top3-stat">
+                                    <strong>88.5万</strong>
+                                    <span>曝光</span>
+                                </div>
+                                <div class="top3-stat">
+                                    <strong>34.3%</strong>
+                                    <span>CTR</span>
+                                </div>
+                            </div>
+                            <span class="badge-text">女性启蒙 · 深度情感</span>
+                        </div>
+
+                        <div class="top3-card">
+                            <div class="top3-rank">2</div>
+                            <div class="top3-title">女人讲话就是好听</div>
+                            <div class="top3-stats">
+                                <div class="top3-stat">
+                                    <strong>2.35万</strong>
+                                    <span>点赞</span>
+                                </div>
+                                <div class="top3-stat">
+                                    <strong>52.6万</strong>
+                                    <span>曝光</span>
+                                </div>
+                                <div class="top3-stat">
+                                    <strong>36.6%</strong>
+                                    <span>CTR</span>
+                                </div>
+                            </div>
+                            <span class="badge-text">社会批评 · 强观点</span>
+                        </div>
+
+                        <div class="top3-card">
+                            <div class="top3-rank">3</div>
+                            <div class="top3-title">做自然女无需自嘲</div>
+                            <div class="top3-stats">
+                                <div class="top3-stat">
+                                    <strong>1.28万</strong>
+                                    <span>点赞</span>
+                                </div>
+                                <div class="top3-stat">
+                                    <strong>19.1万</strong>
+                                    <span>曝光</span>
+                                </div>
+                                <div class="top3-stat">
+                                    <strong>472</strong>
+                                    <span>分享</span>
+                                </div>
+                            </div>
+                            <span class="badge-text">身体自主 · 高共鸣</span>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title">核心洞察 / Content Insights</h3>
+                    <div class="insight-grid">
+                        <div class="insight-card">
+                            <div class="insight-label">万赞公式</div>
+                            <div class="insight-title">强情绪 × 泛受众</div>
+                            <div class="insight-desc">
+                                万赞内容均命中<strong>「女性用户普遍压抑却缺乏出口的情绪」</strong>。
+                                选题标准：该话题是否能让不关注我的人也忍不住点赞？
+                                <br><span class="highlight">结果：3篇万赞，11篇千赞，累计点赞9.7万+</span>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="insight-label">流量门槛</div>
+                            <div class="insight-title">CTR > 30% 是万赞门票</div>
+                            <div class="insight-desc">
+                                3篇万赞内容封面点击率全部超30%，均值34.3%。
+                                <strong>核心逻辑：</strong>强观点标题+极简配图，1秒内触发「这说的就是我」的认同感。
+                            </div>
+                        </div>
+
+                        <div class="insight-card">
+                            <div class="insight-label">内容结构</div>
+                            <div class="insight-title">锚点 → 共鸣 → 行动指令</div>
+                            <div class="insight-desc">
+                                开头反直觉场景锁住注意力；中段堆叠具体细节增强认同感；
+                                结尾主动引导：「点赞=认同」「收藏=备用」，点赞率提升显著。
+                            </div>
+                        </div>
+
+                        <div class="insight-card">
+                            <div class="insight-label">复盘逻辑</div>
+                            <div class="insight-title">以点赞率筛选可复制爆款</div>
+                            <div class="insight-desc">
+                                用<strong>「点赞÷观看量」</strong>识别真正产生共鸣的选题，而非看曝光虚数。
+                                千赞以上内容反复拆解，提炼可迁移的选题结构与标题模式。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: 商业转化账号分析 -->
+                <div id="conversion-project" class="project-content">
+                    <div class="project-tag">
+                        <span class="project-number">LAYER 02</span>
+                        <span class="logic-tag">商业转化力</span>
+                        <span class="project-desc">理解ROI逻辑：如何让内容驱动收藏与购买决策</span>
+                    </div>
+                    
+                    <div class="data-section" style="margin-top: 0; padding-top: 0; border-top: none;">
+                        <h3 class="section-title">PPT部分展示 / Report Preview</h3>
+                        <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">商业价值内容运营分析报告关键页面预览</p>
+                        <div class="ppt-grid">
+                            <div class="ppt-item" onclick="openLightbox('tinified/商业1.png')">
+                                <img src="tinified/商业1.png" alt="商业报告页面1" loading="lazy">
+                                <div class="ppt-label">账号商业价值概览</div>
+                            </div>
+                            <div class="ppt-item" onclick="openLightbox('tinified/商业2.png')">
+                                <img src="tinified/商业2.png" alt="商业报告页面2" loading="lazy">
+                                <div class="ppt-label">受众消费画像</div>
+                            </div>
+                            <div class="ppt-item" onclick="openLightbox('tinified/商业3.png')">
+                                <img src="tinified/商业3.png" alt="商业报告页面3" loading="lazy">
+                                <div class="ppt-label">品类商业适配矩阵</div>
+                            </div>
+                            <div class="ppt-item" onclick="openLightbox('tinified/商业4.png')">
+                                <img src="tinified/商业4.png" alt="商业报告页面4" loading="lazy">
+                                <div class="ppt-label">商业内容生产方法论</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="download-section-top">
+                        <a href="ppts/商业转化账号分析报告1.0.pptx" class="download-btn" download>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            下载商业转化账号分析报告
+                        </a>
+                    </div>
+
+                    <div class="project-intro">
+                        <strong>核心能力验证：</strong>游戏数码垂类账号精准触达外设核心消费人群，通过「场景植入+收藏钩子」策略，
+                        实现0.44%数码品类收藏率（账号均值的2.1倍），7篇外设内容贡献535次收藏，直接触达76万+精准消费受众。
+                        验证了从<strong>「内容流量→消费决策」</strong>的转化链路设计能力。
+                    </div>
+
+                    <h3 class="section-title">高收藏TOP 5 / Conversion Leaders</h3>
+                    <div class="top3-grid">
+                        <div class="top3-card">
+                            <div class="top3-rank">1</div>
+                            <div class="top3-title">俺们农民这个时候最紧张</div>
+                            <div class="top3-stats">
+                                <div class="top3-stat">
+                                    <strong>435</strong>
+                                    <span>收藏</span>
+                                </div>
+                                <div class="top3-stat">
+                                    <strong>42.2万</strong>
+                                    <span>曝光</span>
+                                </div>
+                                <div class="top3-stat">
+                                    <strong>动森</strong>
+                                    <span>品类</span>
+                                </div>
+                            </div>
+                            <span class="badge-video">动物森友会 · 视频</span>
+                        </div>
+
+                        <div class="top3-card">
+                            <div class="top3-rank">2</div>
+                            <div class="top3-title">大学就该买switch啊</div>
+                            <div class="top3-stats">
+                                <div class="top3-stat">
+                                    <strong>365</strong>
+                                    <span>收藏</span>
+                                </div>
+                                <div class="top3-stat">
+                                    <strong>32.5万</strong>
+                                    <span>曝光</span>
+                                </div>
+                                <div class="top3-stat">
+                                    <strong>0.44%</strong>
+                                    <span>收藏率</span>
+                                </div>
+                            </div>
+                            <span class="badge-text">Switch · 购买决策</span>
+                        </div>
+
+                        <div class="top3-card">
+                            <div class="top3-rank">3</div>
+                            <div class="top3-title">有条件一定要买个显示屏</div>
+                            <div class="top3-stats">
+                                <div class="top3-stat">
+                                    <strong>156</strong>
+                                    <span>收藏</span>
+                                </div>
+                                <div class="top3-stat">
+                                    <strong>22.9万</strong>
+                                    <span>曝光</span>
+                                </div>
+                                <div class="top3-stat">
+                                    <strong>数码配件</strong>
+                                    <span>品类</span>
+                                </div>
+                            </div>
+                            <span class="badge-text">数码外设 · 强购买意向</span>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title">核心洞察 / Conversion Insights</h3>
+                    <div class="insight-grid">
+                        <div class="insight-card">
+                            <div class="insight-label">受众画像</div>
+                            <div class="insight-title">游戏外设高消费意愿人群</div>
+                            <div class="insight-desc">
+                                核心任天堂玩家（外设采购需求）+ 数码消费决策者（主动搜索「值不值得买」）+ 
+                                在校女大学生（消费决策独立）。
+                                <br><span class="highlight">结果：7篇外设内容57.1%爆款率，收藏率远超均值</span>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="insight-label">内容策略</div>
+                            <div class="insight-title">场景植入优先于产品展示</div>
+                            <div class="insight-desc">
+                                在真实游戏内容场景中<strong>自然引入外设</strong>，而非硬广式产品特写。
+                                用户信任度来自「真实玩家在用」，而非「博主在推荐」。
+                            </div>
+                        </div>
+
+                        <div class="insight-card">
+                            <div class="insight-label">转化钩子</div>
+                            <div class="insight-title">收藏 = 「我以后要买」的标记</div>
+                            <div class="insight-desc">
+                                在推荐向内容中加入<strong>「收藏备用」</strong>引导，触发用户主动存档行为。
+                                《大学就该买switch》365次收藏即是这一策略的直接验证。
+                            </div>
+                        </div>
+
+                        <div class="insight-card">
+                            <div class="insight-label">垂类优势</div>
+                            <div class="insight-title">真实玩家背书提升可信度</div>
+                            <div class="insight-desc">
+                                深度游戏玩家身份使外设推荐更具说服力，不存在「人设违和」。
+                                与账号定位高度匹配的品牌合作可获得比硬广显著更高的自然传播。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: 欧莱雅品牌策略分析 -->
+                <div id="brand-project" class="project-content">
+                    <div class="project-tag">
+                        <span class="project-number">LAYER 03</span>
+                        <span class="logic-tag">品牌诊断力</span>
+                        <span class="project-desc">整合营销视角：从KOC实操到品牌策略解构</span>
+                    </div>
+                    
+                    <div class="data-section" style="margin-top: 0; padding-top: 0; border-top: none;">
+                        <h3 class="section-title">PPT部分展示 / Report Preview</h3>
+                        <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">欧莱雅小红书内容策略分析报告关键页面预览</p>
+                        <div class="ppt-grid">
+                            <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅1.png')">
+                                <img src="tinified/欧莱雅1.png" alt="欧莱雅报告页面1" loading="lazy">
+                                <div class="ppt-label">数据概览与发布者分布</div>
+                            </div>
+                            <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅2.png')">
+                                <img src="tinified/欧莱雅2.png" alt="欧莱雅报告页面2" loading="lazy">
+                                <div class="ppt-label">叙事钩子频率分析</div>
+                            </div>
+                            <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅3.png')">
+                                <img src="tinified/欧莱雅3.png" alt="欧莱雅报告页面3" loading="lazy">
+                                <div class="ppt-label">竞品对标分析</div>
+                            </div>
+                            <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅4.png')">
+                                <img src="tinified/欧莱雅4.png" alt="欧莱雅报告页面4" loading="lazy">
+                                <div class="ppt-label">品牌策略建议</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="download-section-top">
+                        <a href="ppts/欧莱雅品牌策略分析报告.pptx" class="download-btn" download>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            下载欧莱雅品牌策略分析报告
+                        </a>
+                    </div>
+
+                    <div class="project-intro">
+                        <strong>核心能力验证：</strong>基于近半年50条热帖的KOC实操视角研究，拆解欧莱雅小红书内容策略：
+                        68%暗广渗透率、情绪共鸣54%的叙事钩子、KOL+KOC+素人三层投放结构。
+                        并能从竞品对标（资生堂）中提炼可复用的品牌策略建议，验证了<strong>「从创作者视角到品牌视角」</strong>的思维跃迁能力。
+                    </div>
+
+                    <h3 class="section-title">发布者类型分布 / Publisher Strategy</h3>
+                    <div class="data-table-container" style="margin-bottom: 30px;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>占比</th>
+                                    <th>数量</th>
+                                    <th>角色定位</th>
+                                    <th>特征分析</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>KOL</strong></td>
+                                    <td>52%</td>
+                                    <td>26条</td>
+                                    <td>主力投手</td>
+                                    <td>大量使用「素人安利感」文案，刻意模仿真实用户口吻降低被识破风险</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>KOC</strong></td>
+                                    <td>32%</td>
+                                    <td>16条</td>
+                                    <td>性价比担当</td>
+                                    <td>互动率与KOL相近但成本更低，评论区干预痕迹更少，真实感更强</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>素人</strong></td>
+                                    <td>16%</td>
+                                    <td>8条</td>
+                                    <td>真实用户声音</td>
+                                    <td>平均评论数120条高于均值，易引发真实讨论，是流量杠杆</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="section-title">竞品对标 / Competitive Benchmark</h3>
+                    <div class="data-table-container" style="margin-bottom: 30px;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>维度</th>
+                                    <th>欧莱雅护肤</th>
+                                    <th>资生堂护肤</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>内容形式</strong></td>
+                                    <td>图文为主（易量产/低成本）</td>
+                                    <td>视频为主（9条以上/专业感）</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>发布者策略</strong></td>
+                                    <td>KOL+KOC+素人三层，模仿素人口吻</td>
+                                    <td>高颜值/专业护肤KOL为主，强调可信度</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>核心叙事钩子</strong></td>
+                                    <td>情绪共鸣54%，先共情后种草</td>
+                                    <td>护肤教程+产品植入，专业感开场</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>投放风格</strong></td>
+                                    <td>暗广68%，素人感包装为核心伪装</td>
+                                    <td>明广+暗广混合，专业美感为主基调</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>峰值热度</strong></td>
+                                    <td>最高3,368赞，1000+赞约29条</td>
+                                    <td>最高24,000赞，5000+赞2条</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>品牌感知</strong></td>
+                                    <td>亲民·平价抗老，素人真实感是资产</td>
+                                    <td>专业·高端护肤，视频建立场景信任</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="section-title">核心洞察 / Strategic Insights</h3>
+                    <div class="insight-grid">
+                        <div class="insight-card">
+                            <div class="insight-label">投放策略</div>
+                            <div class="insight-title">暗广当道，素人感是核心伪装逻辑</div>
+                            <div class="insight-desc">
+                                68%为暗广，品牌几乎放弃明投。KOL暗广破绽：<strong>文案过于完整、评论区被积极维护</strong>。
+                                建议：允许少量非完美评论，减少人工干预痕迹，反而建立更高可信度。
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <div class="insight-label">内容引擎</div>
+                            <div class="insight-title">情绪是第一传播引擎，产品是第二</div>
+                            <div class="insight-desc">
+                                54%帖子以情绪钩子开篇（如「建议去查查，太离谱了！！！」）。
+                                <strong>先共鸣再种草</strong>——这是欧莱雅最成熟的内容打法，情绪让用户先停下来。
+                            </div>
+                        </div>
+
+                        <div class="insight-card">
+                            <div class="insight-label">节点营销</div>
+                            <div class="insight-title">节日礼盒是可复制的季节爆发模型</div>
+                            <div class="insight-desc">
+                                复颜新年礼盒2026.01引爆6条热帖，「送礼叙事×情感钩子」效果显著。
+                                <span class="highlight">建议：提炼模板向母亲节、七夕、双十一延伸复用</span>
+                            </div>
+                        </div>
+
+                        <div class="insight-card">
+                            <div class="insight-label">流量杠杆</div>
+                            <div class="insight-title">素人话题帖是被低估的流量杠杆</div>
+                            <div class="insight-desc">
+                                「21岁需要抗初老吗」类询问帖点赞过千、评论高于KOL均值。
+                                品牌可主动策划素人提问型话题，以最低成本撬动真实讨论（KOC实操经验）。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="methodology-box">
+                        <div class="methodology-title">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-color);">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            KOC实操视角的研究方法论
+                        </div>
+                        <div class="methodology-grid">
+                            <div class="method-item">
+                                <div class="method-number">1</div>
+                                <div class="method-content">
+                                    <h4>数据采集</h4>
+                                    <p>搜索「欧莱雅护肤」，按最热排序，筛选近半年点赞量前50条帖子</p>
+                                </div>
+                            </div>
+                            <div class="method-item">
+                                <div class="method-number">2</div>
+                                <div class="method-content">
+                                    <h4>10维分析</h4>
+                                    <p>标题、点赞、收藏、评论、发布者类型、内容标签、叙事钩子、广告判定等10个字段</p>
+                                </div>
+                            </div>
+                            <div class="method-item">
+                                <div class="method-number">3</div>
+                                <div class="method-content">
+                                    <h4>广告判定</h4>
+                                    <p>基于KOC实操经验：评论区维护、文案完整性、粉丝量级、图片专业度综合判断</p>
+                                </div>
+                            </div>
+                            <div class="method-item">
+                                <div class="method-number">4</div>
+                                <div class="method-content">
+                                    <h4>策略输出</h4>
+                                    <p>从投放策略、内容结构到用户叙事模式的完整品牌策略建议+竞品对标</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; padding: 20px; background: var(--secondary-color); border-radius: 8px; font-size: 0.85rem; color: #666; text-align: center;">
+                    <strong>三层能力验证：</strong>内容引爆力（高点赞账号）→ 商业转化力（高转化账号）→ 品牌诊断力（欧莱雅分析）<br>
+                    <strong>分析工具：</strong>Python (Pandas) + 深度运营洞察 | 
+                    <strong>数据来源：</strong>小红书创作者服务平台后台 & 公开热帖数据 | 
+                    <strong>分析周期：</strong>2025.09 - 2026.03
+                </div>
+            </div>
+        </section>
+
+        <!-- Posters Section -->
+        <section id="posters" class="content-section">
+            <div class="section-divider">
+                <h3>视觉设计作品 / Visual Design</h3>
+            </div>
+            <p style="text-align: center; color: #666; margin-bottom: 30px; font-size: 0.9rem;">
+                使用Photoshop创作的Billie Eilish主题海报系列 / Created with Photoshop
+            </p>
+            <div class="poster-grid" id="posterGrid"></div>
+        </section>
+    </div>
+
+    <div class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close">&times;</div>
+        <img src="" alt="Full size" id="lightboxImg">
+    </div>
+
+    <script>
+        // 动画计数器
+        function animateValue(id, start, end, duration) {
+            let obj = document.getElementById(id);
+            let range = end - start;
+            let minTimer = 50;
+            let stepTime = Math.abs(Math.floor(duration / range));
+            stepTime = Math.max(stepTime, minTimer);
+            let startTime = new Date().getTime();
+            let endTime = startTime + duration;
+            let timer;
+          
+            function run() {
+                let now = new Date().getTime();
+                let remaining = Math.max((endTime - now) / duration, 0);
+                let value = Math.round(end - (remaining * range));
+                obj.innerHTML = value.toLocaleString() + '+';
+                if (value == end) {
+                    clearInterval(timer);
+                }
+            }
+            
+            timer = setInterval(run, stepTime);
+            run();
+        }
+
+        window.addEventListener('load', () => {
+            animateValue("totalLikes", 0, 600000, 2000);
+        });
+
+        // 所有需要预加载的图片列表（共25张，排除2张简历首屏图）
+        const preloadQueue = [
+            // Social 板块 (13张)
+            'tinified/w1.jpg', 'tinified/w2.jpg', 'tinified/w3.jpg',
+            'tinified/vw1.PNG', 'tinified/vw2.jpg', 'tinified/vw3.jpg', 'tinified/vw4.jpg',
+            'tinified/k1.jpg', 'tinified/k2.jpg', 'tinified/k3.jpg', 'tinified/k4.jpg', 'tinified/k5.jpg', 'tinified/k6.jpg',
+            // PPT 截图 (12张)
+            'tinified/高点赞1.png', 'tinified/高点赞2.png', 'tinified/高点赞3.png', 'tinified/高点赞4.png',
+            'tinified/商业1.png', 'tinified/商业2.png', 'tinified/商业3.png', 'tinified/商业4.png',
+            'tinified/欧莱雅1.png', 'tinified/欧莱雅2.png', 'tinified/欧莱雅3.png', 'tinified/欧莱雅4.png'
+        ];
+
+        // 海报图片（按需加载，不加入预加载队列，因为用户可能不看海报）
+        const posterFiles = [
+            'tinified/poster1.PNG', 'tinified/poster2.PNG', 'tinified/poster3.JPG', 'tinified/poster4.JPG', 'tinified/poster5.JPG',
+            'tinified/poster6.JPG', 'tinified/poster7.JPG', 'tinified/poster8.JPG', 'tinified/poster9.JPG', 'tinified/poster10.JPG'
+        ];
+
+        // 智能预加载系统
+        let preloadedCount = 0;
         
-        <div class="hero-stats">
-            <div class="stat-item">
-                <div class="stat-number" id="totalLikes">0</div>
-                <div class="stat-label">全网总获赞<br>Cross-platform Likes</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">4</div>
-                <div class="stat-label">矩阵账号运营<br>Managed Accounts</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">万赞爆款内容<br>Viral Posts</div>
-            </div>
-        </div>
-    </header>
+        function shouldPreload() {
+            // 移动端适配：检查省流量模式
+            if ('connection' in navigator) {
+                const conn = navigator.connection;
+                // 如果用户开启省流量模式，跳过预加载
+                if (conn.saveData) {
+                    console.log('Save-Data mode enabled, skipping preload');
+                    return false;
+                }
+                // 如果是2G网络，跳过预加载
+                if (conn.effectiveType === '2g') {
+                    console.log('2G connection detected, skipping preload');
+                    return false;
+                }
+                // 3G网络降低预加载速度（由间隔300ms自动处理，不跳过）
+            }
+            return true;
+        }
 
-    <nav>
-        <button class="nav-btn active" onclick="showSection('resume')">简历 CV</button>
-        <button class="nav-btn" onclick="showSection('social')">自媒体 Social</button>
-        <button class="nav-btn" onclick="showSection('analysis')">数据洞察 Data</button>
-        <button class="nav-btn" onclick="showSection('posters')">海报 Posters</button>
-    </nav>
+        function preloadImage(url) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(url);
+                img.onerror = () => reject(url);
+                // 低优先级加载，不抢带宽
+                if ('fetchpriority' in img) {
+                    img.fetchPriority = 'low';
+                }
+                img.src = url;
+            });
+        }
 
-    <!-- Resume Section -->
-    <section id="resume" class="content-section active">
-        <div class="resume-container">
-            <div class="resume-card" onclick="openLightbox('tinified/resume-C.jpg')">
-                <div class="resume-header">
-                    <span class="resume-title">中文简历</span>
-                    <span class="lang-badge">CN</span>
-                </div>
-                <img src="tinified/resume-C.jpg" alt="中文简历" class="resume-image" fetchpriority="high" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22800%22%3E%3Crect width=%22600%22 height=%22800%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22%3E中文简历预览%3C/text%3E%3C/svg%3E'">
-            </div>
-
-            <div class="resume-card" onclick="openLightbox('tinified/resume-E.jpg')">
-                <div class="resume-header">
-                    <span class="resume-title">English Resume</span>
-                    <span class="lang-badge">EN</span>
-                </div>
-                <img src="tinified/resume-E.jpg" alt="English Resume" class="resume-image" fetchpriority="high" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22800%22%3E%3Crect width=%22600%22 height=%22800%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22%3EEnglish Resume Preview%3C/text%3E%3C/svg%3E'">
-            </div>
-        </div>
-        <p class="caption">点击卡片查看完整简历 / Click to view full resume</p>
-    </section>
-
-    <!-- Social Media Section -->
-    <section id="social" class="content-section">
-        <div class="section-divider">
-            <h3>账号矩阵总览 / Account Overview</h3>
-        </div>
-        
-        <div class="accounts-overview">
-            <div class="account-card featured">
-                <div class="platform-icon">📕</div>
-                <div class="account-name">Fawkes</div>
-                <div class="account-desc">主账号 | 女性主义深度内容</div>
-                <div class="account-stats">330K+</div>
-                <div class="account-label">获赞数</div>
-                <span class="badge">主阵地</span>
-            </div>
+        function startGentlePreload() {
+            if (!shouldPreload()) return;
             
-            <div class="account-card">
-                <div class="platform-icon">📕</div>
-                <div class="account-name">我能早睡</div>
-                <div class="account-desc">副账号 | 生活碎碎念</div>
-                <div class="account-stats">110K+</div>
-                <div class="account-label">获赞数</div>
-            </div>
+            let index = 0;
             
-            <div class="account-card featured">
-                <div class="platform-icon">📕</div>
-                <div class="account-name">小e不吃葱</div>
-                <div class="account-desc">副账号 | 数码宅女/Switch</div>
-                <div class="account-stats">30K+</div>
-                <div class="account-label">获赞数</div>
-                <span class="badge">高变现</span>
-            </div>
+            function loadNext() {
+                if (index >= preloadQueue.length) {
+                    console.log(`Preload complete: ${preloadedCount}/${preloadQueue.length} images`);
+                    return;
+                }
+                
+                const url = preloadQueue[index];
+                
+                // 使用 requestIdleCallback 如果可用（更友好的浏览器空闲加载），否则用 setTimeout
+                const scheduler = ('requestIdleCallback' in window) 
+                    ? window.requestIdleCallback 
+                    : (cb) => setTimeout(cb, 300);
+                
+                scheduler(() => {
+                    preloadImage(url)
+                        .then(() => {
+                            preloadedCount++;
+                            console.log(`Preloaded: ${url}`);
+                        })
+                        .catch(() => {
+                            console.log(`Failed to preload: ${url}`);
+                        })
+                        .finally(() => {
+                            index++;
+                            // 300ms 间隔，温和加载不抢带宽
+                            setTimeout(loadNext, 300);
+                        });
+                }, { timeout: 2000 }); // 2秒超时保障
+            }
             
-            <div class="account-card">
-                <div class="platform-icon">🎵</div>
-                <div class="account-name">Gdi_k2743</div>
-                <div class="account-desc">抖音 | 日常Vlog</div>
-                <div class="account-stats">140K+</div>
-                <div class="account-label">获赞数</div>
-            </div>
-        </div>
+            // 开始加载队列
+            loadNext();
+        }
 
-        <div class="section-divider">
-            <h3>图文破万赞精选 / Viral Graphics (11篇突破万赞)</h3>
-        </div>
-        <div class="centered-grid" id="viralGraphics">
-            <div class="social-item" onclick="openLightbox('tinified/w1.jpg')">
-                <img src="tinified/w1.jpg" alt="爆款图文 1" loading="lazy">
-                <span class="social-badge">10k+ 👍</span>
-            </div>
-            <div class="social-item" onclick="openLightbox('tinified/w2.jpg')">
-                <img src="tinified/w2.jpg" alt="爆款图文 2" loading="lazy">
-                <span class="social-badge">10k+ 👍</span>
-            </div>
-            <div class="social-item" onclick="openLightbox('tinified/w3.jpg')">
-                <img src="tinified/w3.jpg" alt="爆款图文 3" loading="lazy">
-                <span class="social-badge">10k+ 👍</span>
-            </div>
-        </div>
+        // 页面加载完成后，延迟1秒开始预加载（确保首屏渲染完成）
+        window.addEventListener('load', () => {
+            setTimeout(startGentlePreload, 1000);
+        });
 
-        <div class="section-divider">
-            <h3>视频破万赞精选 / Viral Videos (4篇)</h3>
-        </div>
-        <div class="video-grid">
-            <div class="video-item" onclick="openLightbox('tinified/vw1.PNG')">
-                <img src="tinified/vw1.PNG" alt="爆款视频 1" loading="lazy">
-                <span class="social-badge">10k+ ❤️</span>
-            </div>
-            <div class="video-item" onclick="openLightbox('tinified/vw2.jpg')">
-                <img src="tinified/vw2.jpg" alt="爆款视频 2" loading="lazy">
-                <span class="social-badge">10k+ ❤️</span>
-            </div>
-            <!-- 修正：改为 vw3.jpg -->
-            <div class="video-item" onclick="openLightbox('tinified/vw3.jpg')">
-                <img src="tinified/vw3.jpg" alt="爆款视频 3" loading="lazy">
-                <span class="social-badge">10k+ ❤️</span>
-            </div>
-            <div class="video-item" onclick="openLightbox('tinified/vw4.jpg')">
-                <img src="tinified/vw4.jpg" alt="爆款视频 4" loading="lazy">
-                <span class="social-badge">10k+ ❤️</span>
-            </div>
-        </div>
-
-        <div class="section-divider">
-            <h3>破千赞精选 / 1k+ Likes Selection (36篇)</h3>
-        </div>
-        <div class="social-grid" id="kLikes">
-            <div class="social-item" onclick="openLightbox('tinified/k1.jpg')">
-                <img src="tinified/k1.jpg" alt="千赞 1" loading="lazy">
-                <span class="social-badge">1k+ 👍</span>
-            </div>
-            <div class="social-item" onclick="openLightbox('tinified/k2.jpg')">
-                <img src="tinified/k2.jpg" alt="千赞 2" loading="lazy">
-                <span class="social-badge">1k+ 👍</span>
-            </div>
-            <div class="social-item" onclick="openLightbox('tinified/k3.jpg')">
-                <img src="tinified/k3.jpg" alt="千赞 3" loading="lazy">
-                <span class="social-badge">1k+ 👍</span>
-            </div>
-            <div class="social-item" onclick="openLightbox('tinified/k4.jpg')">
-                <img src="tinified/k4.jpg" alt="千赞 4" loading="lazy">
-                <span class="social-badge">1k+ 👍</span>
-            </div>
-            <div class="social-item" onclick="openLightbox('tinified/k5.jpg')">
-                <img src="tinified/k5.jpg" alt="千赞 5" loading="lazy">
-                <span class="social-badge">1k+ 👍</span>
-            </div>
-            <div class="social-item" onclick="openLightbox('tinified/k6.jpg')">
-                <img src="tinified/k6.jpg" alt="千赞 6" loading="lazy">
-                <span class="social-badge">1k+ 👍</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Data Analysis Section -->
-    <section id="analysis" class="content-section">
-        <div class="analysis-container">
-            <div class="analysis-header">
-                <h2 class="analysis-title">Content Strategy Analysis</h2>
-                <p class="analysis-subtitle">基于真实数据的三层能力验证：曝光 → 转化 → 品牌策略</p>
-            </div>
-
-            <!-- Project Selection Tabs -->
-            <div class="project-tabs">
-                <button class="project-tab active" onclick="switchProject('exposure')">高点赞账号分析</button>
-                <button class="project-tab" onclick="switchProject('conversion')">高商业转化账号分析</button>
-                <button class="project-tab" onclick="switchProject('brand')">欧莱雅品牌策略分析</button>
-            </div>
-
-            <!-- Project 1: 高点赞账号分析 -->
-            <div id="exposure-project" class="project-content active">
-                <div class="project-tag">
-                    <span class="project-number">LAYER 01</span>
-                    <span class="logic-tag">内容引爆力</span>
-                    <span class="project-desc">理解传播机制：如何让内容获得高曝光与高点赞</span>
-                </div>
-                
-                <!-- PPT部分展示 - 移到最上面，使用修改后的样式 -->
-                <div class="data-section" style="margin-top: 0; padding-top: 0; border-top: none;">
-                    <h3 class="section-title">PPT部分展示 / Report Preview</h3>
-                    <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">高赞内容运营分析报告关键页面预览</p>
-                    <div class="ppt-grid">
-                        <div class="ppt-item" onclick="openLightbox('tinified/高点赞1.png')">
-                            <img src="tinified/高点赞1.png" alt="高赞报告页面1" loading="lazy">
-                            <div class="ppt-label">账号高赞曝光概览</div>
-                        </div>
-                        <div class="ppt-item" onclick="openLightbox('tinified/高点赞2.png')">
-                            <img src="tinified/高点赞2.png" alt="高赞报告页面2" loading="lazy">
-                            <div class="ppt-label">高赞笔记复盘</div>
-                        </div>
-                        <div class="ppt-item" onclick="openLightbox('tinified/高点赞3.png')">
-                            <img src="tinified/高点赞3.png" alt="高赞报告页面3" loading="lazy">
-                            <div class="ppt-label">高赞选题矩阵</div>
-                        </div>
-                        <div class="ppt-item" onclick="openLightbox('tinified/高点赞4.png')">
-                            <img src="tinified/高点赞4.png" alt="高赞报告页面4" loading="lazy">
-                            <div class="ppt-label">高赞内容生产方法论</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 下载按钮 - 修正路径 -->
-                <div class="download-section-top">
-                    <a href="ppts/高赞账号分析报告1.0.pptx" class="download-btn" download>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                        下载高赞账号分析报告
-                    </a>
-                </div>
-
-                <div class="project-intro">
-                    <strong>核心能力验证：</strong>从0起步的女性议题内容账号，6个月实现260万+曝光、9.7万+点赞。
-                    不依赖粉丝基数，纯粹依靠内容质量驱动流量，3篇万赞、11篇千赞，千赞率达28.2%（远超行业均值）。
-                    验证了对<strong>「情绪共鸣×强观点」</strong>内容模型的精准把控能力。
-                </div>
-
-                <div class="stats-row">
-                    <div class="stat-card">
-                        <div class="stat-card-value">260万+</div>
-                        <div class="stat-card-label">总曝光量</div>
-                        <div class="trend-up">6个月自然触达</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-card-value">9.7万+</div>
-                        <div class="stat-card-label">累计点赞量</div>
-                        <div class="trend-up">3篇万赞爆款</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-card-value">28.2%</div>
-                        <div class="stat-card-label">千赞率</div>
-                        <div class="trend-up">11篇千赞/39篇内容</div>
-                    </div>
-                </div>
-
-                <h3 class="section-title">Top 3 万赞爆款 / Viral Hits</h3>
-                <div class="top3-grid">
-                    <div class="top3-card">
-                        <div class="top3-rank">1</div>
-                        <div class="top3-title">我要给孩子看这样的绘本</div>
-                        <div class="top3-stats">
-                            <div class="top3-stat">
-                                <strong>2.88万</strong>
-                                <span>点赞</span>
-                            </div>
-                            <div class="top3-stat">
-                                <strong>88.5万</strong>
-                                <span>曝光</span>
-                            </div>
-                            <div class="top3-stat">
-                                <strong>34.3%</strong>
-                                <span>CTR</span>
-                            </div>
-                        </div>
-                        <span class="badge-text">女性启蒙 · 深度情感</span>
-                    </div>
-
-                    <div class="top3-card">
-                        <div class="top3-rank">2</div>
-                        <div class="top3-title">女人讲话就是好听</div>
-                        <div class="top3-stats">
-                            <div class="top3-stat">
-                                <strong>2.35万</strong>
-                                <span>点赞</span>
-                            </div>
-                            <div class="top3-stat">
-                                <strong>52.6万</strong>
-                                <span>曝光</span>
-                            </div>
-                            <div class="top3-stat">
-                                <strong>36.6%</strong>
-                                <span>CTR</span>
-                            </div>
-                        </div>
-                        <span class="badge-text">社会批评 · 强观点</span>
-                    </div>
-
-                    <div class="top3-card">
-                        <div class="top3-rank">3</div>
-                        <div class="top3-title">做自然女无需自嘲</div>
-                        <div class="top3-stats">
-                            <div class="top3-stat">
-                                <strong>1.28万</strong>
-                                <span>点赞</span>
-                            </div>
-                            <div class="top3-stat">
-                                <strong>19.1万</strong>
-                                <span>曝光</span>
-                            </div>
-                            <div class="top3-stat">
-                                <strong>472</strong>
-                                <span>分享</span>
-                            </div>
-                        </div>
-                        <span class="badge-text">身体自主 · 高共鸣</span>
-                    </div>
-                </div>
-
-                <h3 class="section-title">核心洞察 / Content Insights</h3>
-                <div class="insight-grid">
-                    <div class="insight-card">
-                        <div class="insight-label">万赞公式</div>
-                        <div class="insight-title">强情绪 × 泛受众</div>
-                        <div class="insight-desc">
-                            万赞内容均命中<strong>「女性用户普遍压抑却缺乏出口的情绪」</strong>。
-                            选题标准：该话题是否能让不关注我的人也忍不住点赞？
-                            <br><span class="highlight">结果：3篇万赞，11篇千赞，累计点赞9.7万+</span>
-                        </div>
-                    </div>
-                    
-                    <div class="insight-card">
-                        <div class="insight-label">流量门槛</div>
-                        <div class="insight-title">CTR > 30% 是万赞门票</div>
-                        <div class="insight-desc">
-                            3篇万赞内容封面点击率全部超30%，均值34.3%。
-                            <strong>核心逻辑：</strong>强观点标题+极简配图，1秒内触发「这说的就是我」的认同感。
-                        </div>
-                    </div>
-
-                    <div class="insight-card">
-                        <div class="insight-label">内容结构</div>
-                        <div class="insight-title">锚点 → 共鸣 → 行动指令</div>
-                        <div class="insight-desc">
-                            开头反直觉场景锁住注意力；中段堆叠具体细节增强认同感；
-                            结尾主动引导：「点赞=认同」「收藏=备用」，点赞率提升显著。
-                        </div>
-                    </div>
-
-                    <div class="insight-card">
-                        <div class="insight-label">复盘逻辑</div>
-                        <div class="insight-title">以点赞率筛选可复制爆款</div>
-                        <div class="insight-desc">
-                            用<strong>「点赞÷观看量」</strong>识别真正产生共鸣的选题，而非看曝光虚数。
-                            千赞以上内容反复拆解，提炼可迁移的选题结构与标题模式。
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2: 商业转化账号分析 -->
-            <div id="conversion-project" class="project-content">
-                <div class="project-tag">
-                    <span class="project-number">LAYER 02</span>
-                    <span class="logic-tag">商业转化力</span>
-                    <span class="project-desc">理解ROI逻辑：如何让内容驱动收藏与购买决策</span>
-                </div>
-                
-                <!-- PPT部分展示 -->
-                <div class="data-section" style="margin-top: 0; padding-top: 0; border-top: none;">
-                    <h3 class="section-title">PPT部分展示 / Report Preview</h3>
-                    <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">商业价值内容运营分析报告关键页面预览</p>
-                    <div class="ppt-grid">
-                        <div class="ppt-item" onclick="openLightbox('tinified/商业1.png')">
-                            <img src="tinified/商业1.png" alt="商业报告页面1" loading="lazy">
-                            <div class="ppt-label">账号商业价值概览</div>
-                        </div>
-                        <div class="ppt-item" onclick="openLightbox('tinified/商业2.png')">
-                            <img src="tinified/商业2.png" alt="商业报告页面2" loading="lazy">
-                            <div class="ppt-label">受众消费画像</div>
-                        </div>
-                        <div class="ppt-item" onclick="openLightbox('tinified/商业3.png')">
-                            <img src="tinified/商业3.png" alt="商业报告页面3" loading="lazy">
-                            <div class="ppt-label">品类商业适配矩阵</div>
-                        </div>
-                        <div class="ppt-item" onclick="openLightbox('tinified/商业4.png')">
-                            <img src="tinified/商业4.png" alt="商业报告页面4" loading="lazy">
-                            <div class="ppt-label">商业内容生产方法论</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 下载按钮 - 修正路径 -->
-                <div class="download-section-top">
-                    <a href="ppts/商业转化账号分析报告1.0.pptx" class="download-btn" download>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                        下载商业转化账号分析报告
-                    </a>
-                </div>
-
-                <div class="project-intro">
-                    <strong>核心能力验证：</strong>游戏数码垂类账号精准触达外设核心消费人群，通过「场景植入+收藏钩子」策略，
-                    实现0.44%数码品类收藏率（账号均值的2.1倍），7篇外设内容贡献535次收藏，直接触达76万+精准消费受众。
-                    验证了从<strong>「内容流量→消费决策」</strong>的转化链路设计能力。
-                </div>
-
-                <h3 class="section-title">高收藏TOP 5 / Conversion Leaders</h3>
-                <div class="top3-grid">
-                    <div class="top3-card">
-                        <div class="top3-rank">1</div>
-                        <div class="top3-title">俺们农民这个时候最紧张</div>
-                        <div class="top3-stats">
-                            <div class="top3-stat">
-                                <strong>435</strong>
-                                <span>收藏</span>
-                            </div>
-                            <div class="top3-stat">
-                                <strong>42.2万</strong>
-                                <span>曝光</span>
-                            </div>
-                            <div class="top3-stat">
-                                <strong>动森</strong>
-                                <span>品类</span>
-                            </div>
-                        </div>
-                        <span class="badge-video">动物森友会 · 视频</span>
-                    </div>
-
-                    <div class="top3-card">
-                        <div class="top3-rank">2</div>
-                        <div class="top3-title">大学就该买switch啊</div>
-                        <div class="top3-stats">
-                            <div class="top3-stat">
-                                <strong>365</strong>
-                                <span>收藏</span>
-                            </div>
-                            <div class="top3-stat">
-                                <strong>32.5万</strong>
-                                <span>曝光</span>
-                            </div>
-                            <div class="top3-stat">
-                                <strong>0.44%</strong>
-                                <span>收藏率</span>
-                            </div>
-                        </div>
-                        <span class="badge-text">Switch · 购买决策</span>
-                    </div>
-
-                    <div class="top3-card">
-                        <div class="top3-rank">3</div>
-                        <div class="top3-title">有条件一定要买个显示屏</div>
-                        <div class="top3-stats">
-                            <div class="top3-stat">
-                                <strong>156</strong>
-                                <span>收藏</span>
-                            </div>
-                            <div class="top3-stat">
-                                <strong>22.9万</strong>
-                                <span>曝光</span>
-                            </div>
-                            <div class="top3-stat">
-                                <strong>数码配件</strong>
-                                <span>品类</span>
-                            </div>
-                        </div>
-                        <span class="badge-text">数码外设 · 强购买意向</span>
-                    </div>
-                </div>
-
-                <h3 class="section-title">核心洞察 / Conversion Insights</h3>
-                <div class="insight-grid">
-                    <div class="insight-card">
-                        <div class="insight-label">受众画像</div>
-                        <div class="insight-title">游戏外设高消费意愿人群</div>
-                        <div class="insight-desc">
-                            核心任天堂玩家（外设采购需求）+ 数码消费决策者（主动搜索「值不值得买」）+ 
-                            在校女大学生（消费决策独立）。
-                            <br><span class="highlight">结果：7篇外设内容57.1%爆款率，收藏率远超均值</span>
-                        </div>
-                    </div>
-                    
-                    <div class="insight-card">
-                        <div class="insight-label">内容策略</div>
-                        <div class="insight-title">场景植入优先于产品展示</div>
-                        <div class="insight-desc">
-                            在真实游戏内容场景中<strong>自然引入外设</strong>，而非硬广式产品特写。
-                            用户信任度来自「真实玩家在用」，而非「博主在推荐」。
-                        </div>
-                    </div>
-
-                    <div class="insight-card">
-                        <div class="insight-label">转化钩子</div>
-                        <div class="insight-title">收藏 = 「我以后要买」的标记</div>
-                        <div class="insight-desc">
-                            在推荐向内容中加入<strong>「收藏备用」</strong>引导，触发用户主动存档行为。
-                            《大学就该买switch》365次收藏即是这一策略的直接验证。
-                        </div>
-                    </div>
-
-                    <div class="insight-card">
-                        <div class="insight-label">垂类优势</div>
-                        <div class="insight-title">真实玩家背书提升可信度</div>
-                        <div class="insight-desc">
-                            深度游戏玩家身份使外设推荐更具说服力，不存在「人设违和」。
-                            与账号定位高度匹配的品牌合作可获得比硬广显著更高的自然传播。
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 3: 欧莱雅品牌策略分析 -->
-            <div id="brand-project" class="project-content">
-                <div class="project-tag">
-                    <span class="project-number">LAYER 03</span>
-                    <span class="logic-tag">品牌诊断力</span>
-                    <span class="project-desc">整合营销视角：从KOC实操到品牌策略解构</span>
-                </div>
-                
-                <!-- PPT部分展示 -->
-                <div class="data-section" style="margin-top: 0; padding-top: 0; border-top: none;">
-                    <h3 class="section-title">PPT部分展示 / Report Preview</h3>
-                    <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">欧莱雅小红书内容策略分析报告关键页面预览</p>
-                    <div class="ppt-grid">
-                        <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅1.png')">
-                            <img src="tinified/欧莱雅1.png" alt="欧莱雅报告页面1" loading="lazy">
-                            <div class="ppt-label">数据概览与发布者分布</div>
-                        </div>
-                        <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅2.png')">
-                            <img src="tinified/欧莱雅2.png" alt="欧莱雅报告页面2" loading="lazy">
-                            <div class="ppt-label">叙事钩子频率分析</div>
-                        </div>
-                        <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅3.png')">
-                            <img src="tinified/欧莱雅3.png" alt="欧莱雅报告页面3" loading="lazy">
-                            <div class="ppt-label">竞品对标分析</div>
-                        </div>
-                        <div class="ppt-item" onclick="openLightbox('tinified/欧莱雅4.png')">
-                            <img src="tinified/欧莱雅4.png" alt="欧莱雅报告页面4" loading="lazy">
-                            <div class="ppt-label">品牌策略建议</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 下载按钮 - 修正路径 -->
-                <div class="download-section-top">
-                    <a href="ppts/欧莱雅品牌策略分析报告.pptx" class="download-btn" download>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                        下载欧莱雅品牌策略分析报告
-                    </a>
-                </div>
-
-                <div class="project-intro">
-                    <strong>核心能力验证：</strong>基于近半年50条热帖的KOC实操视角研究，拆解欧莱雅小红书内容策略：
-                    68%暗广渗透率、情绪共鸣54%的叙事钩子、KOL+KOC+素人三层投放结构。
-                    并能从竞品对标（资生堂）中提炼可复用的品牌策略建议，验证了<strong>「从创作者视角到品牌视角」</strong>的思维跃迁能力。
-                </div>
-
-                <h3 class="section-title">发布者类型分布 / Publisher Strategy</h3>
-                <div class="data-table-container" style="margin-bottom: 30px;">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>类型</th>
-                                <th>占比</th>
-                                <th>数量</th>
-                                <th>角色定位</th>
-                                <th>特征分析</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>KOL</strong></td>
-                                <td>52%</td>
-                                <td>26条</td>
-                                <td>主力投手</td>
-                                <td>大量使用「素人安利感」文案，刻意模仿真实用户口吻降低被识破风险</td>
-                            </tr>
-                            <tr>
-                                <td><strong>KOC</strong></td>
-                                <td>32%</td>
-                                <td>16条</td>
-                                <td>性价比担当</td>
-                                <td>互动率与KOL相近但成本更低，评论区干预痕迹更少，真实感更强</td>
-                            </tr>
-                            <tr>
-                                <td><strong>素人</strong></td>
-                                <td>16%</td>
-                                <td>8条</td>
-                                <td>真实用户声音</td>
-                                <td>平均评论数120条高于均值，易引发真实讨论，是流量杠杆</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3 class="section-title">竞品对标 / Competitive Benchmark</h3>
-                <div class="data-table-container" style="margin-bottom: 30px;">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>维度</th>
-                                <th>欧莱雅护肤</th>
-                                <th>资生堂护肤</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>内容形式</strong></td>
-                                <td>图文为主（易量产/低成本）</td>
-                                <td>视频为主（9条以上/专业感）</td>
-                            </tr>
-                            <tr>
-                                <td><strong>发布者策略</strong></td>
-                                <td>KOL+KOC+素人三层，模仿素人口吻</td>
-                                <td>高颜值/专业护肤KOL为主，强调可信度</td>
-                            </tr>
-                            <tr>
-                                <td><strong>核心叙事钩子</strong></td>
-                                <td>情绪共鸣54%，先共情后种草</td>
-                                <td>护肤教程+产品植入，专业感开场</td>
-                            </tr>
-                            <tr>
-                                <td><strong>投放风格</strong></td>
-                                <td>暗广68%，素人感包装为核心伪装</td>
-                                <td>明广+暗广混合，专业美感为主基调</td>
-                            </tr>
-                            <tr>
-                                <td><strong>峰值热度</strong></td>
-                                <td>最高3,368赞，1000+赞约29条</td>
-                                <td>最高24,000赞，5000+赞2条</td>
-                            </tr>
-                            <tr>
-                                <td><strong>品牌感知</strong></td>
-                                <td>亲民·平价抗老，素人真实感是资产</td>
-                                <td>专业·高端护肤，视频建立场景信任</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3 class="section-title">核心洞察 / Strategic Insights</h3>
-                <div class="insight-grid">
-                    <div class="insight-card">
-                        <div class="insight-label">投放策略</div>
-                        <div class="insight-title">暗广当道，素人感是核心伪装逻辑</div>
-                        <div class="insight-desc">
-                            68%为暗广，品牌几乎放弃明投。KOL暗广破绽：<strong>文案过于完整、评论区被积极维护</strong>。
-                            建议：允许少量非完美评论，减少人工干预痕迹，反而建立更高可信度。
-                        </div>
-                    </div>
-                    
-                    <div class="insight-card">
-                        <div class="insight-label">内容引擎</div>
-                        <div class="insight-title">情绪是第一传播引擎，产品是第二</div>
-                        <div class="insight-desc">
-                            54%帖子以情绪钩子开篇（如「建议去查查，太离谱了！！！」）。
-                            <strong>先共鸣再种草</strong>——这是欧莱雅最成熟的内容打法，情绪让用户先停下来。
-                        </div>
-                    </div>
-
-                    <div class="insight-card">
-                        <div class="insight-label">节点营销</div>
-                        <div class="insight-title">节日礼盒是可复制的季节爆发模型</div>
-                        <div class="insight-desc">
-                            复颜新年礼盒2026.01引爆6条热帖，「送礼叙事×情感钩子」效果显著。
-                            <span class="highlight">建议：提炼模板向母亲节、七夕、双十一延伸复用</span>
-                        </div>
-                    </div>
-
-                    <div class="insight-card">
-                        <div class="insight-label">流量杠杆</div>
-                        <div class="insight-title">素人话题帖是被低估的流量杠杆</div>
-                        <div class="insight-desc">
-                            「21岁需要抗初老吗」类询问帖点赞过千、评论高于KOL均值。
-                            品牌可主动策划素人提问型话题，以最低成本撬动真实讨论（KOC实操经验）。
-                        </div>
-                    </div>
-                </div>
-
-                <div class="methodology-box">
-                    <div class="methodology-title">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-color);">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" y1="16" x2="12" y2="12"></line>
-                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                        </svg>
-                        KOC实操视角的研究方法论
-                    </div>
-                    <div class="methodology-grid">
-                        <div class="method-item">
-                            <div class="method-number">1</div>
-                            <div class="method-content">
-                                <h4>数据采集</h4>
-                                <p>搜索「欧莱雅护肤」，按最热排序，筛选近半年点赞量前50条帖子</p>
-                            </div>
-                        </div>
-                        <div class="method-item">
-                            <div class="method-number">2</div>
-                            <div class="method-content">
-                                <h4>10维分析</h4>
-                                <p>标题、点赞、收藏、评论、发布者类型、内容标签、叙事钩子、广告判定等10个字段</p>
-                            </div>
-                        </div>
-                        <div class="method-item">
-                            <div class="method-number">3</div>
-                            <div class="method-content">
-                                <h4>广告判定</h4>
-                                <p>基于KOC实操经验：评论区维护、文案完整性、粉丝量级、图片专业度综合判断</p>
-                            </div>
-                        </div>
-                        <div class="method-item">
-                            <div class="method-number">4</div>
-                            <div class="method-content">
-                                <h4>策略输出</h4>
-                                <p>从投放策略、内容结构到用户叙事模式的完整品牌策略建议+竞品对标</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="margin-top: 40px; padding: 20px; background: var(--secondary-color); border-radius: 8px; font-size: 0.85rem; color: #666; text-align: center;">
-                <strong>三层能力验证：</strong>内容引爆力（高点赞账号）→ 商业转化力（高转化账号）→ 品牌诊断力（欧莱雅分析）<br>
-                <strong>分析工具：</strong>Python (Pandas) + 深度运营洞察 | 
-                <strong>数据来源：</strong>小红书创作者服务平台后台 & 公开热帖数据 | 
-                <strong>分析周期：</strong>2025.09 - 2026.03
-            </div>
-        </div>
-    </section>
-
-    <!-- Posters Section -->
-    <section id="posters" class="content-section">
-        <div class="section-divider">
-            <h3>视觉设计作品 / Visual Design</h3>
-        </div>
-        <p style="text-align: center; color: #666; margin-bottom: 30px; font-size: 0.9rem;">
-            使用Photoshop创作的Billie Eilish主题海报系列 / Created with Photoshop
-        </p>
-        <div class="poster-grid" id="posterGrid"></div>
-    </section>
-</div>
-
-<div class="lightbox" onclick="closeLightbox()">
-    <div class="lightbox-close">&times;</div>
-    <img src="" alt="Full size" id="lightboxImg">
-</div>
-
-<script>
-    // Animation for total likes counter
-    function animateValue(id, start, end, duration) {
-        let obj = document.getElementById(id);
-        let range = end - start;
-        let minTimer = 50;
-        let stepTime = Math.abs(Math.floor(duration / range));
-        stepTime = Math.max(stepTime, minTimer);
-        let startTime = new Date().getTime();
-        let endTime = startTime + duration;
-        let timer;
-      
-        function run() {
-            let now = new Date().getTime();
-            let remaining = Math.max((endTime - now) / duration, 0);
-            let value = Math.round(end - (remaining * range));
-            obj.innerHTML = value.toLocaleString() + '+';
-            if (value == end) {
-                clearInterval(timer);
+        // 原有的 Section 切换逻辑
+        function showSection(sectionName) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(sectionName).classList.add('active');
+            event.target.classList.add('active');
+            
+            // 如果是海报section且未初始化，初始化海报
+            if (sectionName === 'posters' && document.getElementById('posterGrid').children.length === 0) {
+                initPosters();
             }
         }
-        
-        timer = setInterval(run, stepTime);
-        run();
-    }
 
-    // Start animation when page loads
-    window.addEventListener('load', () => {
-        animateValue("totalLikes", 0, 600000, 2000);
-    });
-
-    const posterFiles = [
-        'tinified/poster1.PNG', 'tinified/poster2.PNG', 'tinified/poster3.JPG', 'tinified/poster4.JPG', 'tinified/poster5.JPG',
-        'tinified/poster6.JPG', 'tinified/poster7.JPG', 'tinified/poster8.JPG', 'tinified/poster9.JPG', 'tinified/poster10.JPG'
-    ];
-
-    function showSection(sectionName) {
-        document.querySelectorAll('.content-section').forEach(section => {
-            section.classList.remove('active');
-        });
-        document.querySelectorAll('.nav-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        document.getElementById(sectionName).classList.add('active');
-        event.target.classList.add('active');
-        
-        if (sectionName === 'posters' && document.getElementById('posterGrid').children.length === 0) {
-            initPosters();
+        function switchProject(projectType) {
+            document.querySelectorAll('.project-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.project-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(projectType + '-project').classList.add('active');
+            event.target.classList.add('active');
         }
-    }
 
-    function switchProject(projectType) {
-        // Hide all project contents
-        document.querySelectorAll('.project-content').forEach(content => {
-            content.classList.remove('active');
+        function initPosters() {
+            const grid = document.getElementById('posterGrid');
+            posterFiles.forEach((file, index) => {
+                const item = document.createElement('div');
+                item.className = 'poster-item';
+                item.onclick = () => openLightbox(file);
+                item.innerHTML = `
+                    <img src="${file}" alt="Poster ${index + 1}" loading="lazy" onerror="this.parentElement.style.display='none'">
+                    <div class="poster-overlay">
+                        <p style="font-weight: 500;">Poster ${index + 1}</p>
+                        <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 5px;">点击查看大图</p>
+                    </div>
+                `;
+                grid.appendChild(item);
+            });
+        }
+
+        function openLightbox(src) {
+            const lightbox = document.querySelector('.lightbox');
+            document.getElementById('lightboxImg').src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.querySelector('.lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
         });
-        document.querySelectorAll('.project-tab').forEach(tab => {
-            tab.classList.remove('active');
-        });
-        
-        // Show selected
-        document.getElementById(projectType + '-project').classList.add('active');
-        event.target.classList.add('active');
-    }
 
-    function initPosters() {
-        const grid = document.getElementById('posterGrid');
-        posterFiles.forEach((file, index) => {
-            const item = document.createElement('div');
-            item.className = 'poster-item';
-            item.onclick = () => openLightbox(file);
-            item.innerHTML = `
-                <img src="${file}" alt="Poster ${index + 1}" loading="lazy" onerror="this.parentElement.style.display='none'">
-                <div class="poster-overlay">
-                    <p style="font-weight: 500;">Poster ${index + 1}</p>
-                    <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 5px;">点击查看大图</p>
-                </div>
-            `;
-            grid.appendChild(item);
-        });
-    }
-
-    function openLightbox(src) {
-        const lightbox = document.querySelector('.lightbox');
-        document.getElementById('lightboxImg').src = src;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-        document.querySelector('.lightbox').classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeLightbox();
-    });
-
-    // Smooth scroll behavior
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
-    });
 
-    // Add hover effects for data tables
-    document.querySelectorAll('.data-table tr').forEach(row => {
-        row.addEventListener('mouseenter', function() {
-            this.style.transition = 'all 0.3s';
+        document.querySelectorAll('.data-table tr').forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.3s';
+            });
         });
-    });
-
-    // 后台预加载所有非首屏图片，用户点tab时已在缓存里
-    window.addEventListener('load', function() {
-        const bgImages = [
-            'tinified/w1.jpg','tinified/w2.jpg','tinified/w3.jpg',
-            'tinified/vw1.PNG','tinified/vw2.jpg','tinified/vw3.jpg','tinified/vw4.jpg',
-            'tinified/k1.jpg','tinified/k2.jpg','tinified/k3.jpg',
-            'tinified/k4.jpg','tinified/k5.jpg','tinified/k6.jpg',
-            'tinified/高点赞1.png','tinified/高点赞2.png','tinified/高点赞3.png','tinified/高点赞4.png',
-            'tinified/商业1.png','tinified/商业2.png','tinified/商业3.png','tinified/商业4.png',
-            'tinified/欧莱雅1.png','tinified/欧莱雅2.png','tinified/欧莱雅3.png','tinified/欧莱雅4.png'
-        ];
-        // 每隔300ms加载一张，不抢占简历图片的带宽
-        bgImages.forEach((src, i) => {
-            setTimeout(() => { new Image().src = src; }, 500 + i * 300);
-        });
-    });
-</script>
-```
-
+    </script>
 </body>
 </html>
